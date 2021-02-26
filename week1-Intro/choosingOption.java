@@ -1,4 +1,7 @@
-//Ex 6.1
+/*Ex6.1
+Write, compile and run the ChoosingOption program:
+    Note: We use JavaBasics project for this exercise
+*/
 import javax.swing.JOptionPane;
 public class choosingOption {
     public static void main(String[] args) {
