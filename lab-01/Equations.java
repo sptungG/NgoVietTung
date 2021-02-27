@@ -9,6 +9,7 @@ For simplicity, we only consider the real roots of the equations in this task.
 import java.util.Scanner;
 public class Equations {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         int select;
         do{
             System.out.println("===========MENU===========");
@@ -17,7 +18,6 @@ public class Equations {
             System.out.println("3, The second-degree equation with one variable.");
             System.out.println("4, Exit!");
             System.out.printf("=>Enter your choice: ");
-            Scanner scanner = new Scanner(System.in);
             select = scanner.nextInt();
             // System.out.println(select);
             switch(select){
@@ -87,11 +87,11 @@ public class Equations {
                     break;
                 }
                 case 4:{
-                    System.out.printf("EXIT!");
+                    System.out.println("EXIT!");
                     break;
                 }
                 default:{
-                    System.out.printf("[ERROR] Wrong Case.\n");
+                    System.out.println("[ERROR]Invalid. Choose again!\n");
                     break;
                 }
             }
