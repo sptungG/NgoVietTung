@@ -9,7 +9,7 @@ For simplicity, we only consider the real roots of the equations in this task.
 import java.util.Scanner;
 public class Equations {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in); 
         int select;
         do{
             System.out.println("===========MENU===========");
