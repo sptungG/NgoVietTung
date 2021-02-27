@@ -77,8 +77,16 @@ public class Equations {
                     int c = scanner.nextInt();
                     float delta = (float) b*b - 4*a*c;
                     System.out.printf("The Equation: %dx^2 + %db +%d = 0\n",a,b,c);
+                    if(a==0 && b==0 && c==0){
+                        System.out.printf("--Infinite Solution: \n");
+                        break;
+                    }
+                    if(a==0 && b!=0 && c!=0){
+                        System.out.printf("--Solution: \n"+"\tx = " + -c/b+"\n");
+                        break;
+                    }
                     if(delta == 0){
-                        System.out.printf("--Solution: \n"+"\tx = " + -b/(2*a)+"\n");
+                        System.out.printf("--Solution: \n"+"\tx1 = x2 =" + -b/(2*a)+"\n");
                     }else if(delta > 0){
                         System.out.printf("--Solution: \n" + "\tx1 = " + (-b+Math.sqrt(delta))/(2*a) + "\n" + "\tx2 = " + (-b-Math.sqrt(delta))/(2*a)+"\n");
                     }else{
