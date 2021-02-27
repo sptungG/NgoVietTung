@@ -36,12 +36,12 @@ public class addMatrices{
                 matrixSum[i][j] = matrix1[i][j] + matrix2[i][j];
             }
         }
-		System.out.println("----Matrix 1: ");
-		showMatrix(matrix1, n);
-        System.out.println("----Matrix 2: ");
-		showMatrix(matrix2, n);
-		System.out.println("----Sum of two matrices: ");
-		showMatrix(matrixSum, n);
+	System.out.println("----Matrix 1: ");
+	showMatrix(matrix1, n);
+    System.out.println("----Matrix 2: ");
+	showMatrix(matrix2, n);
+	System.out.println("----Sum of two matrices: ");
+	showMatrix(matrixSum, n);
         
         scanner.close();
     }
