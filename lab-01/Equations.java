@@ -39,7 +39,7 @@ public class Equations {
                     break;
                 }
                 case 2:{
-                    System.out.println("a11x1 + a12x2 = b1\n");
+                    System.out.println("a11.x1 + a12.x2 = b1");
                     System.out.print("\tInput a11: ");
                     int a11 = scanner.nextInt();
                     System.out.print("\tInput a12: ");
@@ -47,14 +47,14 @@ public class Equations {
                     System.out.print("\tInput b1: ");
                     int b1 = scanner.nextInt();
 
-                    System.out.println("a21x1 + a22x2 = b2\n");
+                    System.out.println("a21.x1 + a22.x2 = b2");
                     System.out.print("\tInput a21: ");
                     int a21 = scanner.nextInt();
                     System.out.print("\tInput a22: ");
                     int a22 = scanner.nextInt();
                     System.out.print("\tInput b2: ");
                     int b2 = scanner.nextInt();
-                    System.out.printf("The System:\n\t %dx1 + %dx2 = %d\n\t %dx1 + %dx2 = %d\n",a11,a12,b1,a21,a22,b2);
+                    System.out.printf("The System:\n\t %d.x1 + %d.x2 = %d\n\t %d.x1 + %d.x2 = %d\n",a11,a12,b1,a21,a22,b2);
                     float D = (float) a11*a22 - a12*a21;
                     float D1 = (float) b1*a22 - b2*a12;
                     float D2 = (float) a11*b2 - a21*b1;
@@ -68,7 +68,7 @@ public class Equations {
                     break;
                 }
                 case 3:{
-                    System.out.println("ax^2 + bx + c = 0\n");
+                    System.out.println("ax^2 + bx + c = 0");
                     System.out.print("\tInput a: ");
                     int a = scanner.nextInt();
                     System.out.print("\tInput b: ");
