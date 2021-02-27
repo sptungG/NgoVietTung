@@ -39,7 +39,7 @@ public class Equations {
                     break;
                 }
                 case 2:{
-                    System.out.print("\na11x1 + a12x2 = b1\n");
+                    System.out.println("a11x1 + a12x2 = b1\n");
                     System.out.print("\tInput a11: ");
                     int a11 = scanner.nextInt();
                     System.out.print("\tInput a12: ");
@@ -47,7 +47,7 @@ public class Equations {
                     System.out.print("\tInput b1: ");
                     int b1 = scanner.nextInt();
 
-                    System.out.print("\na21x1 + a22x2 = b2\n");
+                    System.out.println("a21x1 + a22x2 = b2\n");
                     System.out.print("\tInput a21: ");
                     int a21 = scanner.nextInt();
                     System.out.print("\tInput a22: ");
@@ -61,14 +61,14 @@ public class Equations {
                     if(D != 0){
                         System.out.printf("--Solution: \n" + "\tx1 = " + D1/D + "\n" + "\tx2 = " + D2/D +"\n");
                     }else if(D1 == 0 && D2 == 0){
-                        System.out.printf("--Infinite Solution.\n");
+                        System.out.print("--Infinite Solution.\n");
                     }else{
-                        System.out.printf("--No Solution.\n");
+                        System.out.print("--No Solution.\n");
                     }
                     break;
                 }
                 case 3:{
-                    System.out.print("\nax^2 + bx + c = 0\n");
+                    System.out.println("ax^2 + bx + c = 0\n");
                     System.out.print("\tInput a: ");
                     int a = scanner.nextInt();
                     System.out.print("\tInput b: ");
@@ -82,7 +82,7 @@ public class Equations {
                     }else if(delta > 0){
                         System.out.printf("--Solution: \n" + "\tx1 = " + (-b+Math.sqrt(delta))/(2*a) + "\n" + "\tx2 = " + (-b-Math.sqrt(delta))/(2*a)+"\n");
                     }else{
-                        System.out.printf("--No Solution.\n");
+                        System.out.print("--No Solution.\n");
                     }
                     break;
                 }
