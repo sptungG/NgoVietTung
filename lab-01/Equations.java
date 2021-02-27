@@ -96,7 +96,7 @@ public class Equations {
                 }
             }
         }while(select != 4);
-        
+        scanner.close();
     }
 }
 
