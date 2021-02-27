@@ -31,21 +31,26 @@ public class addMatrices{
                 matrix2[i][j] = scanner.nextInt();
             }
         }
-
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 matrixSum[i][j] = matrix1[i][j] + matrix2[i][j];
             }
         }
-
-        System.out.println("----Sum of two matrices:");
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                System.out.print(matrixSum[i][j] + "\t");
+		System.out.println("----Matrix 1: ");
+		showMatrix(matrix1, n);
+        System.out.println("----Matrix 2: ");
+		showMatrix(matrix2, n);
+		System.out.println("----Sum of two matrices: ");
+		showMatrix(matrixSum, n);
+        
+        scanner.close();
+    }
+    public static void showMatrix(int matrix[][], int size) {
+        for(int i = 0; i < size; i++) {
+            for(int j = 0; j < size; j++) {
+                System.out.printf("%d ", matrix[i][j]);
             }
             System.out.println("");
         }
-        
-        scanner.close();
     }
 }
