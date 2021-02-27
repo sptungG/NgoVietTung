@@ -14,13 +14,15 @@ public class daysOfMonth {
         String nameOfMonth = "Unknown";
         int month,year;
 
-        System.out.print("Input a month number: ");
-        month = input.nextInt();
-        System.out.print("Input a year: ");
-        year = input.nextInt();
-    while( month < 0 || month > 12 || year < 0){
-        System.out.print("[ERROR]Try again, Input a month number: ");
-        month = input.nextInt();
+    System.out.print("Input a month number: ");
+    month = input.nextInt();
+    while( month < 0 || month > 12 ){
+            System.out.print("[ERROR]Try again, Input a month number: ");
+            month = input.nextInt();
+    }
+    System.out.print("Input a year: ");
+    year = input.nextInt();
+    while( year < 0){
         System.out.print("[ERROR]Try again, Input a year: ");
         year = input.nextInt();
     }
