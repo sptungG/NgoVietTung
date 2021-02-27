@@ -6,28 +6,24 @@ Notes
          double num1 = Double.parseDouble(strNum1)
 - Check the divisor of the division
 */
-import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class CalculateTwoNumbers{
     public static void main(String[] args) {
-        Scanner calc = new Scanner(System.in);
+        String strNum1 =  JOptionPane.showInputDialog(null, "Input the first number",null, JOptionPane.INFORMATION_MESSAGE);
+        String strNum2 =  JOptionPane.showInputDialog(null, "Input the second number",null, JOptionPane.INFORMATION_MESSAGE);
 
-        System.out.print("Input 1st integer: ");
-        int num1 = calc.nextInt();
-        System.out.print("Input 2nd integer: ");
-        int num2 = calc.nextInt();
-        
-        System.out.printf("Sum: %d\n", num1 + num2);
-        System.out.printf("Difference: %d\n", num1 - num2);
-        System.out.printf("Product: %d\n", num1 * num2);
-        if(num2 == 0) {
-            System.out.printf("Quotient: Error\n");
-        }else {
-            float quotient = (float)num1 / num2;
-            System.out.printf("Quotient: %f\n", quotient);
-        }        
-        calc.close();
+        double num1 = Double.parseDouble(strNum1);
+        double num2 = Double.parseDouble(strNum2);
+
+        JOptionPane.showMessageDialog(null, num1 + "+" + num2 + " = " + (num1+num2), "Result", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, num1 + "-" + num2 + " = " + (num1-num2), "Result", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, num1 + "*" + num2 + " = " + (num1*num2), "Result", JOptionPane.INFORMATION_MESSAGE);
+        if(num2 == 0){
+            JOptionPane.showMessageDialog(null, num1 + "/" + num2 + " = " + "error", "Result", JOptionPane.ERROR_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(null, num1 + "/" + num2 + " = " + (num1/num2), "Result", JOptionPane.INFORMATION_MESSAGE);
+        }
         System.exit(0);
-
     }
 }
