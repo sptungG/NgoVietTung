@@ -15,14 +15,10 @@ public class CalculateTwoNumbers{
 
         double num1 = Double.parseDouble(strNum1);
         double num2 = Double.parseDouble(strNum2);
-
-        JOptionPane.showMessageDialog(null, num1 + "+" + num2 + " = " + (num1+num2), "Result", JOptionPane.INFORMATION_MESSAGE);
-        JOptionPane.showMessageDialog(null, num1 + "-" + num2 + " = " + (num1-num2), "Result", JOptionPane.INFORMATION_MESSAGE);
-        JOptionPane.showMessageDialog(null, num1 + "*" + num2 + " = " + (num1*num2), "Result", JOptionPane.INFORMATION_MESSAGE);
         if(num2 == 0){
-            JOptionPane.showMessageDialog(null, num1 + "/" + num2 + " = " + "error", "Result", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Sum:"+ num1 + "+" + num2 + " = " + (num1+num2) +"\nDifference:" + num1 + "-" + num2 + " = " + (num1-num2) +"\nProduct:"+num1 + "*" + num2 + " = " + (num1*num2)+"\nDivision: "+num1 + "/" + num2 + " = " + "Error", "Result", JOptionPane.INFORMATION_MESSAGE);
         }else{
-            JOptionPane.showMessageDialog(null, num1 + "/" + num2 + " = " + (num1/num2), "Result", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Sum:"+ num1 + "+" + num2 + " = " + (num1+num2) +"\nDifference:" + num1 + "-" + num2 + " = " + (num1-num2) +"\nProduct:"+num1 + "*" + num2 + " = " + (num1*num2)+"\nDivision: "+num1 + "/" + num2 + " = " + (num1/num2), "Result", JOptionPane.INFORMATION_MESSAGE);
         }
         System.exit(0);
     }
