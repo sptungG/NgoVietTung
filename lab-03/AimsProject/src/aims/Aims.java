@@ -7,16 +7,16 @@ public class Aims {
         Cart anOrder = new Cart();
         
         //add DVD to the cart
-        DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95f);
+        DigitalVideoDisc dvd1 = new DigitalVideoDisc("Sinbab", "Animation", "bbbbbb", 88, 19f);
         anOrder.addDigitalVideoDisc(dvd1);
         
-        DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", "Science Fiction", "George Lucas", 87, 24.95f);
+        DigitalVideoDisc dvd2 = new DigitalVideoDisc("Ironman 1", "Science Fiction", "aaaaaa", 87, 24f);
         anOrder.addDigitalVideoDisc(dvd2);
         
-        DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 19.95f);
+        DigitalVideoDisc dvd3 = new DigitalVideoDisc("Naruto", "Animation", 19.95f);
         anOrder.addDigitalVideoDisc(dvd3);
         
-        DigitalVideoDisc dvd4 = new DigitalVideoDisc("Harry Potter");
+        DigitalVideoDisc dvd4 = new DigitalVideoDisc("Kimetsu no Yaiba");
         anOrder.addDigitalVideoDisc(dvd4);
         
         //show the cart
