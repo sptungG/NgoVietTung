@@ -1,60 +1,76 @@
 package aims;
-import java.util.Arrays;
+
+import java.util.ArrayList;
 
 public class Cart {
-	public static final int MAX_NUMBERS_ORDERED = 10;
-	private DigitalVideoDisc itemsOrdered[] = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
-	private int qtyOdered = 0;
-	
-	public DigitalVideoDisc[] getItemsOrdered() {
-		return itemsOrdered;
-	}
-	public void setItemsOrdered(DigitalVideoDisc[] itemsOrdered) {
-		this.itemsOrdered = itemsOrdered;
-	}
-	public int getQtyOdered() {
-		return qtyOdered;
-	}
-	public void setQtyOdered(int qtyOdered) {
-		this.qtyOdered = qtyOdered;
-	}
-	public static int getMaxNumbersOrdered() {
-		return MAX_NUMBERS_ORDERED;
-	}
-	public void addDigitalVideoDisc(DigitalVideoDisc disc){
-		if(qtyOdered == MAX_NUMBERS_ORDERED) {
-			System.out.println("----[Add]The order is almost full");
-			return;
-		}
-		else {
-			itemsOrdered[qtyOdered] = disc;
-			System.out.println("----[Add]The disc has been added");
-			qtyOdered++;
-		}
-	}
-	public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
-		for(int i = 0; i<qtyOdered; i++) {
-			if(disc.equals(itemsOrdered[i])) {
-				for(int j = i; j < qtyOdered - 1; j++) {
-					itemsOrdered[j] = itemsOrdered[j+1];
-				}
-				qtyOdered--;
-				System.out.println("----[Removed]Successful");
-				return;
-			}
-		}
-		System.out.println("----[Removed]Item does not exist in the ordered list");
-	}
-	public float totalCost() {
-		float sumCost = 0;
-		for(int i = 0; i < qtyOdered; i++) {
-			sumCost += itemsOrdered[i].getCost();
-		}
-		return sumCost;
-	}
-	@Override
-	public String toString() {
-		return "\n----Order itemsOrdered :\n" + Arrays.toString(itemsOrdered) + "\n qtyOdered=" + qtyOdered + "\n";
-	}
+
+    private static final int MAX_NUMBERS_ORDERED = 20;
+    private ArrayList<DigitalVideoDisc> itemsOrdered = new ArrayList<>();
+
+    public void addDigitalVideoDisc(DigitalVideoDisc disc) {
+        if (itemsOrdered.size() + 1 > MAX_NUMBERS_ORDERED) {
+            System.out.println("----The cart is almost full!");
+        } else {
+            itemsOrdered.add(disc);
+            System.out.println("----The disc \"" + disc.getTitle() + "\" has been added!");
+        }
+    }
+
+    public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
+        if (itemsOrdered.size() == 0) {
+            System.out.println("----The cart is empty!");
+        } else {
+            boolean fl = itemsOrdered.remove(disc);
+            if (fl) {
+                System.out.println("----The disc \"" + disc.getTitle() + "\" has been removed!");
+            } else {
+                System.out.println("----This disc does not exist in the cart!");
+            }
+        }
+    }
+
+    public float totalCost() {
+        float cost = 0;
+        for (int i = 0; i < itemsOrdered.size(); i++) {
+            cost += itemsOrdered.get(i).getCost();
+        }
+        return ((int) (cost * 100)) / 100f;
+    }
+    public void showOrder(int blank, String str) {
+        int cBlank = blank - str.length();
+        if (cBlank % 2 == 0) {
+            for (int i = 1; i <= cBlank / 2; i++) {
+                System.out.print(" ");
+            }
+            System.out.print(str);
+            for (int i = 1; i <= cBlank / 2; i++) {
+                System.out.print(" ");
+            }
+        } else {
+            for (int i = 1; i <= cBlank / 2; i++) {
+                System.out.print(" ");
+            }
+            System.out.print(str);
+            for (int i = 1; i <= cBlank / 2 + 1; i++) {
+                System.out.print(" ");
+            }
+        }
+    }
+
+    public void displayCart() {
+        if (itemsOrdered.size() == 0) {
+            System.out.println("----The cart is empty!");
+        } else {
+            System.out.println("\n----Your Cart: ");
+            System.out.println("|     |      _Title_      |      _Category_      |   _Director_   | _Length_ |      _Cost_    |");
+            for (int i = 0; i < itemsOrdered.size(); i++) {
+                String order = String.valueOf(i + 1);
+                showOrder(5, order);
+                itemsOrdered.get(i).displayDVD();
+            }
+            System.out.print("==== Total");
+            showOrder(16, String.valueOf(totalCost()));
+            System.out.println("");
+        }
+    }
 }
-	

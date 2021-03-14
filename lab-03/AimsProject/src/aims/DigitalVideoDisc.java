@@ -1,108 +1,103 @@
 package aims;
 
 public class DigitalVideoDisc {
-	private  String title;
-	private String category;
-	private String director;
-	private int length;
-	private float cost;
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public String getCategory() {
-		return category;
-	}
-	public void setCategory(String category) {
-		this.category = category;
-	}
-	public String getDirector() {
-		return director;
-	}
-	public void setDirector(String director) {
-		this.director = director;
-	}
-	public int getLength() {
-		return length;
-	}
-	public void setLength(int length) {
-		this.length = length;
-	}
-	public float getCost() {
-		return cost;
-	}
-	public void setCost(float cost) {
-		this.cost = cost;
-	}
-	public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
-		super();
-		this.title = title;
-		this.category = category;
-		this.director = director;
-		this.length = length;
-		this.cost = cost;
-	}
-	public DigitalVideoDisc(String title) {
-		super();
-		this.title = title;
-	}
-	public DigitalVideoDisc(String title, String category) {
-		super();
-		this.title = title;
-		this.category = category;
-	}
-	public DigitalVideoDisc(String title, String category, String director) {
-		super();
-		this.title = title;
-		this.category = category;
-		this.director = director;
-	}
-	@Override
-	public String toString() {
-		return "[DVD][title: " + title + ", category: " + category + ", director: " + director + ", length: "
-				+ length + ", cost: " + cost + "]" + "\n";
-	}
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((category == null) ? 0 : category.hashCode());
-		result = prime * result + Float.floatToIntBits(cost);
-		result = prime * result + ((director == null) ? 0 : director.hashCode());
-		result = prime * result + length;
-		result = prime * result + ((title == null) ? 0 : title.hashCode());
-		return result;
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		DigitalVideoDisc other = (DigitalVideoDisc) obj;
-		if (category == null) {
-			if (other.category != null)
-				return false;
-		} else if (!category.equals(other.category))
-			return false;
-		if (Float.floatToIntBits(cost) != Float.floatToIntBits(other.cost))
-			return false;
-		if (director == null) {
-			if (other.director != null)
-				return false;
-		} else if (!director.equals(other.director))
-			return false;
-		if (length != other.length)
-			return false;
-		if (title == null) {
-			if (other.title != null)
-				return false;
-		} else if (!title.equals(other.title))
-			return false;
-		return true;
-	}
+    private String title;
+    private String category;
+    private String director;
+    private int length;
+    private float cost;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public float getCost() {
+        return cost;
+    }
+
+    public DigitalVideoDisc() {
+    } 
+
+    public DigitalVideoDisc(String title) {
+        this.title = title;
+    }
+
+    public DigitalVideoDisc(String title, String category, float cost) {
+        this.title = title;
+        this.category = category;
+        this.cost = cost;
+    }
+
+    public DigitalVideoDisc(String title, String category, String director, float cost) {
+        this.title = title;
+        this.category = category;
+        this.director = director;
+        this.cost = cost;
+    }
+
+    public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
+        this.title = title;
+        this.category = category;
+        this.director = director;
+        this.length = length;
+        this.cost = cost;
+    }
+    public void showOrder(int blank, String str) {
+        int cBlank = blank - str.length();
+        if (cBlank % 2 == 0) {
+            for (int i = 1; i <= cBlank / 2; i++) {
+                System.out.print(" ");
+            }
+            System.out.print(str);
+            for (int i = 1; i <= cBlank / 2; i++) {
+                System.out.print(" ");
+            }
+        } else {
+            for (int i = 1; i <= cBlank / 2; i++) {
+                System.out.print(" ");
+            }
+            System.out.print(str);
+            for (int i = 1; i <= cBlank / 2 + 1; i++) {
+                System.out.print(" ");
+            }
+        }
+    }
+    public void displayColumn(int blank, String str) {
+        if (str == null) {
+            str = "-";
+        }
+        showOrder( blank, str);
+        System.out.print("|");
+    }
+    public void displayBlank() {
+        String Cost = String.valueOf(this.cost);
+        if (Cost.equals("0.0")) {
+            Cost = "-";
+        }
+        displayColumn(16, Cost);
+        String Length = String.valueOf(this.length);
+        if (Length.equals("0")) {
+            Length = "-";
+        }
+        displayColumn(10, Length);
+    }
+    public void displayDVD() {
+        displayColumn(21, this.title);
+        displayColumn(22, this.category);
+        displayColumn(16, this.director);
+        displayBlank();
+        System.out.println("");
+    }
 }
