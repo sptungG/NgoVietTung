@@ -28,14 +28,6 @@ public class Cart {
             }
         }
     }
-
-    public float totalCost() {
-        float cost = 0;
-        for (int i = 0; i < itemsOrdered.size(); i++) {
-            cost += itemsOrdered.get(i).getCost();
-        }
-        return ((int) (cost * 100)) / 100f;
-    }
     public void showOrder(int blank, String str) {
         int cBlank = blank - str.length();
         if (cBlank % 2 == 0) {
@@ -56,7 +48,14 @@ public class Cart {
             }
         }
     }
-
+    
+    public float totalCost() {
+        float cost = 0;
+        for (int i = 0; i < itemsOrdered.size(); i++) {
+            cost += itemsOrdered.get(i).getCost();
+        }
+        return ((int) (cost * 100)) / 100f;
+    }
     public void displayCart() {
         if (itemsOrdered.size() == 0) {
             System.out.println("----The cart is empty!");

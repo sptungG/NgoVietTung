@@ -74,6 +74,7 @@ public class DigitalVideoDisc {
             }
         }
     }
+
     public void displayColumn(int blank, String str) {
         if (str == null) {
             str = "-";
@@ -93,6 +94,7 @@ public class DigitalVideoDisc {
         }
         displayColumn(10, Length);
     }
+
     public void displayDVD() {
         displayColumn(21, this.title);
         displayColumn(22, this.category);
