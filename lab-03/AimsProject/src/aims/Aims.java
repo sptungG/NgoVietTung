@@ -73,15 +73,16 @@ public class Aims {
         anOrder.displayCart();
         
         //remove DVD from the cart
-        anOrder.removeDigitalVideoDisc(dvd3);
         anOrder.removeDigitalVideoDisc(dvd4);
-		anOrder.removeDigitalVideoDisc(dvd5);
-		anOrder.removeDigitalVideoDisc(dvd5);
+        anOrder.removeDigitalVideoDisc(dvd5);
+		anOrder.removeDigitalVideoDisc(dvd6);
+		anOrder.removeDigitalVideoDisc(dvd6);
 
-        anOrder.addDigitalVideoDisc(dvd21);
+        anOrder.addDigitalVideoDisc(dvd18);
         anOrder.removeDigitalVideoDisc(dvd17);
-		anOrder.removeDigitalVideoDisc(dvd21);
-		anOrder.removeDigitalVideoDisc(dvd21);
+		anOrder.removeDigitalVideoDisc(dvd18);
+		anOrder.removeDigitalVideoDisc(dvd18);
+        
         anOrder.displayCart();
         
         //print total cost
