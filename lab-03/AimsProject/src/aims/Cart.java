@@ -9,7 +9,7 @@ public class Cart {
 
     public void addDigitalVideoDisc(DigitalVideoDisc disc) {
         if (itemsOrdered.size() + 1 > MAX_NUMBERS_ORDERED) {
-            System.out.println("----The cart is almost full!");
+            System.out.println("----<!> The cart is almost full!----");
         } else {
             itemsOrdered.add(disc);
             System.out.println("----The disc \"" + disc.getTitle() + "\" has been added!");
@@ -18,13 +18,13 @@ public class Cart {
 
     public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
         if (itemsOrdered.size() == 0) {
-            System.out.println("----The cart is empty!");
+            System.out.println("----<!> The cart is empty!----");
         } else {
             boolean fl = itemsOrdered.remove(disc);
             if (fl) {
                 System.out.println("----The disc \"" + disc.getTitle() + "\" has been removed!");
             } else {
-                System.out.println("----This disc does not exist in the cart!");
+                System.out.println("----<!> This disc does not exist in the cart!----");
             }
         }
     }
@@ -48,7 +48,7 @@ public class Cart {
             }
         }
     }
-    
+
     public float totalCost() {
         float cost = 0;
         for (int i = 0; i < itemsOrdered.size(); i++) {
