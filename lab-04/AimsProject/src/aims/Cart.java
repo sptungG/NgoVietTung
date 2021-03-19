@@ -61,7 +61,7 @@ public class Cart {
             System.out.println("----The cart is empty!");
         } else {
             System.out.println("\n----Your Cart: ");
-            System.out.println("|     |      _Title_      |      _Category_      |   _Director_   | _Length_ |      _Cost_    |");
+            System.out.println("|    |                _Title_                |      _Category_      |   _Director_   |    _Length_    |  _Cost_  |");
             for (int i = 0; i < itemsOrdered.size(); i++) {
                 String order = String.valueOf(i + 1);
                 showOrder(5, order);
