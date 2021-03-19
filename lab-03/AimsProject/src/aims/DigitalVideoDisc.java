@@ -96,7 +96,7 @@ public class DigitalVideoDisc {
     }
 
     public void displayDVD() {
-        displayColumn(21, this.title);
+        displayColumn(40, this.title);
         displayColumn(22, this.category);
         displayColumn(16, this.director);
         displayBlank();
