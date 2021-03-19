@@ -82,7 +82,12 @@ public class Aims {
         anOrder.removeDigitalVideoDisc(dvd17);
 		anOrder.removeDigitalVideoDisc(dvd18);
 		anOrder.removeDigitalVideoDisc(dvd18);
-        
+
+		System.out.println(DVDUtils.compareByCost(dvd1, dvd2));
+		System.out.println(DVDUtils.compareByCost(dvd2, dvd3));
+		System.out.println(DVDUtils.compareByTitle(dvd4, dvd5));
+        System.out.println(DVDUtils.compareByTitle(dvd8, dvd11));
+		
         anOrder.displayCart();
         
         //print total cost

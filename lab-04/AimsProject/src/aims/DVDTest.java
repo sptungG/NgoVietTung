@@ -10,7 +10,9 @@ public class DVDTest {
 		DigitalVideoDisc dvd4= new DigitalVideoDisc("DDDD", "dddd", "dddd", 4, 7.1f);
 		DigitalVideoDisc dvd5= new DigitalVideoDisc("EEEE", "eeee", "eeee", 5, 3.3f);
 		
-		System.out.print(DVDUtils.compareByCost(dvd1, dvd2));
+		System.out.println(DVDUtils.compareByCost(dvd1, dvd2));
+		System.out.println(DVDUtils.compareByCost(dvd2, dvd3));
+		System.out.println(DVDUtils.compareByCost(dvd4, dvd5));
 		
 	}
 
