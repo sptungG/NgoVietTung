@@ -1,4 +1,4 @@
-## Question at `1`
+## Question in `1`
 	* You will create a new method that has the same name but with different type of parameter. addDigitalVideoDisc(DigitalVideoDisc [] dvdList)
 	* This method will add a list of DVDs to the current cart
 	Try to add a method `addDigitalVideoDisc` which allows to pass an arbitrary number of arguments for dvd. Compare to an array parameter. What do you prefer in this case?
@@ -9,7 +9,7 @@
 - This varargs method is convenient than passing array parameter because we don’t have to create an array of DigitalVideoDisc in the main function but the method 
 		creates an array of parameters of unspecified length in the background and such a parameter can be treated as an array in runtime. Length of the array is limited 
 		while varargs is not and it easier to manage the object passed in the method. 
-## Question at `2.Passing parameter`:
+## Question in `2.Passing parameter`:
     Is JAVA a Pass by Value or a Pass by Reference programming language?
 
 `Answer:`  JAVA is always a pass by value programming language. The method parameter values are copied to another variable and then the copied object is passed to the method.
@@ -64,7 +64,7 @@ jungle dvd title: cinderellaDVD
 jungle DVD title: cinderellaDVD
 cinderella DVD title: jungle
 ```
-## Question at `6.Open the Cart class`
+## Question in `6.Open the Cart class`
 	Suggestion: Write a getDetail() method for the DigitalVideoDisc class. What should be the return type of this method?
 
 `Answer:` `getDetail()` method return a string which includes information of disc. When calling System.out.println(dvd.getDetail()); The program will print out that information.
