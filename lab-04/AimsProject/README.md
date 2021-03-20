@@ -3,7 +3,12 @@
 	* This method will add a list of DVDs to the current cart
 	Try to add a method `addDigitalVideoDisc` which allows to pass an arbitrary number of arguments for dvd. Compare to an array parameter. What do you prefer in this case?
 
-
+- The method which allows to pass an arbitrary number of arguments is called Variable Argument (Varargs) method. The varags allows the method to accept zero or 
+		muliple arguments. Before varargs either we use overloaded method or take an array as the method parameter but it was not considered good because it leads to 
+		the maintenance problem. If we don't know how many argument we will have to pass in the method, varargs is the better approach.
+- This varargs method is convenient than passing array parameter because we don’t have to create an array of DigitalVideoDisc in the main function but the method 
+		creates an array of parameters of unspecified length in the background and such a parameter can be treated as an array in runtime. Length of the array is limited 
+		while varargs is not and it easier to manage the object passed in the method. 
 ## Question at `2.Passing parameter`:
     Is JAVA a Pass by Value or a Pass by Reference programming language?
 
@@ -43,9 +48,11 @@ jungle dvd title: cinderellaDVD
 ```
 *  It’s clear that `swap` method didn’t worked. This is because Java is pass by value.
 ### Question * *After the call of `swap(jungleDVD, cinderellaDVD)` why does the title of these two objects still remain?*
-* Notice that we are changing values of o1 and o2 but they are copies of “jungleDVD” and “cinderellaDVD” reference **locations**, so actually there is no change in the values of “jungleDVD” and “cinderellaDVD” and hence the output.
+
+`Answer:` Notice that we are changing values of o1 and o2 but they are copies of “jungleDVD” and “cinderellaDVD” reference **locations**, so actually there is no change in the values of “jungleDVD” and “cinderellaDVD” and hence the output.
 ### Question * *After the call of `changeTitle(jungleDVD, cinderellaDVD.getTitle())` why is the title of the JungleDVD changed?*
-* The first line is the important one, when we call a method the method is called on the Object at the reference location.
+
+`Answer:` The first line is the important one, when we call a method the method is called on the Object at the reference location.
 ### Write a swap() method that can correctly swap the two objects. (in TestPassingParameter.java)
 ```java
 	public static void swap(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2) {
@@ -57,3 +64,7 @@ jungle dvd title: cinderellaDVD
 jungle DVD title: cinderellaDVD
 cinderella DVD title: jungle
 ```
+## Question at `6.Open the Cart class`
+	Suggestion: Write a getDetail() method for the DigitalVideoDisc class. What should be the return type of this method?
+
+`Answer:` `getDetail()` method return a string which includes information of disc. When calling System.out.println(dvd.getDetail()); The program will print out that information.

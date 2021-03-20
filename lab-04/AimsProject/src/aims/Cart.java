@@ -55,33 +55,40 @@ public class Cart {
             }
         }
         if ( j != qtyOrdered ){
-            System.out.println("---- [" + disc.getTitle() + "] was removed.");
+            System.out.println("----[" + disc.getTitle() + "] was removed.");
             this.setQtyOrdered(j);
         }
         else{
             System.out.println("----<!>[" + disc.getTitle() + "] is not in Cart.");
         }
     }
-    // public void showOrder(int blank, String str) {
-    //     int cBlank = blank - str.length();
-    //     if (cBlank % 2 == 0) {
-    //         for (int i = 1; i <= cBlank / 2; i++) {
-    //             System.out.print(" ");
-    //         }
-    //         System.out.print(str);
-    //         for (int i = 1; i <= cBlank / 2; i++) {
-    //             System.out.print(" ");
-    //         }
-    //     } else {
-    //         for (int i = 1; i <= cBlank / 2; i++) {
-    //             System.out.print(" ");
-    //         }
-    //         System.out.print(str);
-    //         for (int i = 1; i <= cBlank / 2 + 1; i++) {
-    //             System.out.print(" ");
-    //         }
-    //     }
-    // }
+
+    public void sortByCost(DigitalVideoDisc[] dvdList) {
+		DigitalVideoDisc[] sorted = DVDUtils.sortByCost(dvdList);
+		System.out.println("---- Sort by Cost: ");
+		for(int i = 0; i< sorted.length; i++){
+			System.out.println(sorted[i].getDetail());
+		}
+    }
+    public void sortByTitle(DigitalVideoDisc[] dvdList) {
+		DigitalVideoDisc[] sortedd = DVDUtils.sortByTitle(dvdList);
+		System.out.println("---- Sort by Title: ");
+		for(int i = 0; i< sortedd.length; i++){
+			System.out.println(sortedd[i].getDetail());
+		}
+    }
+	public void searchByID(int id) {
+		int found  = 0;
+		int i = 0;
+		while(i < qtyOrdered && found  == 0) {
+			if(itemsOrdered[i].getId() == id) {
+				System.out.println("----A match DVD is found: " + id +" ."+ itemsOrdered[i].getDetail());
+				found =1;
+			}
+			i++;
+		}
+		if(found == 0) System.out.println("----<!>No match DVD with ID: " + id + " is found");
+	}
 
     public float totalCost(){
         float total = 0;
@@ -93,13 +100,16 @@ public class Cart {
     public void orderedBill() {
         System.out.println("*********************CART*********************");
         System.out.println("Ordered Items: ");
-        for (int i = 0; i < qtyOrdered; i++) {
-            System.out.println("DVD - " + itemsOrdered[i].getTitle() + " - " +
-                    itemsOrdered[i].getDirector() + " - " + 
-                    itemsOrdered[i].getCategory() + " - " + 
-                    itemsOrdered[i].getLength() + ": " + 
-                    itemsOrdered[i].getCost() + "$");
-        }
+        // for (int i = 0; i < qtyOrdered; i++) {
+        //     System.out.println("DVD - " + itemsOrdered[i].getTitle() + " - " +
+        //             itemsOrdered[i].getDirector() + " - " + 
+        //             itemsOrdered[i].getCategory() + " - " + 
+        //             itemsOrdered[i].getLength() + ": " + 
+        //             itemsOrdered[i].getCost() + "$");
+        // }
+        for(int i = 0; i < qtyOrdered; i++) {
+			System.out.println( itemsOrdered[i].getDetail());
+		}
         System.out.println("Total cost : " + totalCost() +" $");
         System.out.println("***********************************************");
     }

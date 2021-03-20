@@ -6,6 +6,8 @@ public class DigitalVideoDisc {
     private String director;
     private int length;
     private float cost;
+    private static int nbDigitalVideoDiscs = 0;
+	private int id;
 
 	public String getTitle() {
 		return title;
@@ -37,34 +39,57 @@ public class DigitalVideoDisc {
 	public void setCost(float cost) {
 		this.cost = cost;
 	}
+    public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 
     public DigitalVideoDisc() {
     } 
 
-    public DigitalVideoDisc(String title) {
+    public DigitalVideoDisc( String title) {
+        this.title = title;
+    }
+    public DigitalVideoDisc(int id, String title) {
+        this.id = id;
         this.title = title;
     }
 
-    public DigitalVideoDisc(String title, String category, float cost) {
+    public DigitalVideoDisc(int id, String title, String category, float cost) {
+        this.id = id;
         this.title = title;
         this.category = category;
         this.cost = cost;
     }
 
-    public DigitalVideoDisc(String title, String category, String director, float cost) {
+    public DigitalVideoDisc(int id, String title, String category, String director, float cost) {
+        this.id = id;
         this.title = title;
         this.category = category;
         this.director = director;
         this.cost = cost;
     }
 
-    public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
+    public DigitalVideoDisc(int id, String title, String category, String director, int length, float cost) {
+        this.id = id;
         this.title = title;
         this.category = category;
         this.director = director;
         this.length = length;
         this.cost = cost;
     }
+    public static int getNbDigitalVideoDiscs() {
+		return nbDigitalVideoDiscs;
+	}
+
+    public String getDetail() {
+		return ("DVD - " + this.title+ " - " + this.category + " - " +
+				this.director + " - "+ this.length + ": " + this.cost + "$");
+	}
+}
+
 //     public void showOrder(int blank, String str) {
 //         int cBlank = blank - str.length();
 //         if (cBlank % 2 == 0) {
@@ -113,4 +138,4 @@ public class DigitalVideoDisc {
 //         displayBlank();
 //         System.out.println("");
 //     }
-}
+// }
