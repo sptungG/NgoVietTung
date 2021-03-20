@@ -65,52 +65,52 @@ public class DigitalVideoDisc {
         this.length = length;
         this.cost = cost;
     }
-    public void showOrder(int blank, String str) {
-        int cBlank = blank - str.length();
-        if (cBlank % 2 == 0) {
-            for (int i = 1; i <= cBlank / 2; i++) {
-                System.out.print(" ");
-            }
-            System.out.print(str);
-            for (int i = 1; i <= cBlank / 2; i++) {
-                System.out.print(" ");
-            }
-        } else {
-            for (int i = 1; i <= cBlank / 2; i++) {
-                System.out.print(" ");
-            }
-            System.out.print(str);
-            for (int i = 1; i <= cBlank / 2 + 1; i++) {
-                System.out.print(" ");
-            }
-        }
-    }
+//     public void showOrder(int blank, String str) {
+//         int cBlank = blank - str.length();
+//         if (cBlank % 2 == 0) {
+//             for (int i = 1; i <= cBlank / 2; i++) {
+//                 System.out.print(" ");
+//             }
+//             System.out.print(str);
+//             for (int i = 1; i <= cBlank / 2; i++) {
+//                 System.out.print(" ");
+//             }
+//         } else {
+//             for (int i = 1; i <= cBlank / 2; i++) {
+//                 System.out.print(" ");
+//             }
+//             System.out.print(str);
+//             for (int i = 1; i <= cBlank / 2 + 1; i++) {
+//                 System.out.print(" ");
+//             }
+//         }
+//     }
 
-    public void displayColumn(int blank, String str) {
-        if (str == null) {
-            str = "-";
-        }
-        showOrder( blank, str);
-        System.out.print("|");
-    }
-    public void displayBlank() {
-        String Cost = String.valueOf(this.cost);
-        if (Cost.equals("0.0")) {
-            Cost = "-";
-        }
-        displayColumn(16, Cost);
-        String Length = String.valueOf(this.length);
-        if (Length.equals("0")) {
-            Length = "-";
-        }
-        displayColumn(10, Length);
-    }
+//     public void displayColumn(int blank, String str) {
+//         if (str == null) {
+//             str = "-";
+//         }
+//         showOrder( blank, str);
+//         System.out.print("|");
+//     }
+//     public void displayBlank() {
+//         String Cost = String.valueOf(this.cost);
+//         if (Cost.equals("0.0")) {
+//             Cost = "-";
+//         }
+//         displayColumn(16, Cost);
+//         String Length = String.valueOf(this.length);
+//         if (Length.equals("0")) {
+//             Length = "-";
+//         }
+//         displayColumn(10, Length);
+//     }
 
-    public void displayDVD() {
-        displayColumn(40, this.title);
-        displayColumn(22, this.category);
-        displayColumn(16, this.director);
-        displayBlank();
-        System.out.println("");
-    }
+//     public void  orderedBill(){
+//         displayColumn(40, this.title);
+//         displayColumn(22, this.category);
+//         displayColumn(16, this.director);
+//         displayBlank();
+//         System.out.println("");
+//     }
 }
