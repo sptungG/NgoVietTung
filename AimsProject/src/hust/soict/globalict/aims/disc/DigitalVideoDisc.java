@@ -45,7 +45,7 @@ public class DigitalVideoDisc {
 	public void setId(int id) {
 		this.id = id;
 	}
-
+// ------------------------------ ------------------------------
     public DigitalVideoDisc() {
     } 
 
@@ -83,7 +83,17 @@ public class DigitalVideoDisc {
     public static int getNbDigitalVideoDiscs() {
 		return nbDigitalVideoDiscs;
 	}
-
+// ------------------------------ ------------------------------
+	public boolean search(String title) {
+		String[] input = title.toLowerCase().split(" ");
+		for (int i = 0; i < input.length; i++) {
+			if(getTitle().toLowerCase().contains(input[i])) {
+				return true;
+			}
+		}
+		return false;
+	}
+// ------------------------------ ------------------------------
     public String getDetail() {
 		return ("DVD - " + this.title+ " - " + this.category + " - " +
 				this.director + " - "+ this.length + ": " + this.cost + "$");

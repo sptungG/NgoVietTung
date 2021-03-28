@@ -1,11 +1,13 @@
 package hust.soict.globalict.aims.cart;
+import java.util.Scanner;
+
 import hust.soict.globalict.aims.utils.*;
 
 import hust.soict.globalict.aims.disc.DigitalVideoDisc;
 
 public class Cart {
     private static final int MAX_NUMBERS_ORDERED = 20;
-    private final DigitalVideoDisc itemsOrdered[] = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
+    public final DigitalVideoDisc itemsOrdered[] = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
     private int qtyOrdered = 0;
 
     public int getQtyOrdered() {
@@ -15,7 +17,7 @@ public class Cart {
     public void setQtyOrdered(int qtyOrdered) {
         this.qtyOrdered = qtyOrdered;
     }
-
+// ------------------------------ ------------------------------
     public void addDigitalVideoDisc(DigitalVideoDisc disc){
         if (qtyOrdered < MAX_NUMBERS_ORDERED){
             itemsOrdered[qtyOrdered++] = disc;
@@ -46,7 +48,7 @@ public class Cart {
         addDigitalVideoDisc(dvd1);
         addDigitalVideoDisc(dvd2);
     }
-
+// ------------------------------ ------------------------------
     public void removeDigitalVideoDisc(DigitalVideoDisc disc){
         int j = 0;
         for (int i = 0; i < qtyOrdered; i++) {
@@ -63,7 +65,7 @@ public class Cart {
             System.out.println("----<!>[" + disc.getTitle() + "] is not in Cart.");
         }
     }
-
+// ------------------------------ ------------------------------
     public void sortByCost(DigitalVideoDisc[] dvdList) {
 		DigitalVideoDisc[] sorted = DVDUtils.sortByCost(dvdList);
 		System.out.println("---- Sort by Cost: ");
@@ -78,6 +80,7 @@ public class Cart {
 			System.out.println(sortedd[i].getDetail());
 		}
     }
+// ------------------------------ ------------------------------
 	public void searchByID(int id) {
 		int found  = 0;
 		int i = 0;
@@ -90,7 +93,24 @@ public class Cart {
 		}
 		if(found == 0) System.out.println("----<!>No match DVD with ID: " + id + " is found");
 	}
-
+    public void searchByTitle() {
+        int mark = 0;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("====[Search by Title] Enter the title:");
+        String title = sc.nextLine();
+        System.out.println("==== Results: ");
+        for(DigitalVideoDisc disc: itemsOrdered) {
+            if(disc != null && disc.search(title)) {
+                mark = 1;
+                System.out.println("---- "+ disc.getTitle());
+                }
+            }
+        if(mark == 0) {
+            System.out.println("----<!> ["+ title +"] is not matched.");
+        }
+            sc.close();
+    }
+// ------------------------------ ------------------------------
     public float totalCost(){
         float total = 0;
         for (int i = 0; i < qtyOrdered; i++){
@@ -98,6 +118,7 @@ public class Cart {
         }
         return total;       
     }
+// ------------------------------ ------------------------------
     public void orderedBill() {
         System.out.println("*********************CART*********************");
         System.out.println("Ordered Items: ");
