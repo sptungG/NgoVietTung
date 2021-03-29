@@ -5,7 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 public class ConcatenationInLoops {
 	public static void main(String[] args) throws IOException {
-	String filename ="test.txt";
+	String filename ="test.exe";
 	byte[] inputBytes= {0};
 	long startTime, endTime;
 	

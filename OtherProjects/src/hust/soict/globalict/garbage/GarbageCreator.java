@@ -1,6 +1,7 @@
 package hust.soict.globalict.garbage;
 
 public class GarbageCreator {
+	
 	public static void main(String[] args) {
 		long startTime, endTime;
 		startTime =System.currentTimeMillis();
