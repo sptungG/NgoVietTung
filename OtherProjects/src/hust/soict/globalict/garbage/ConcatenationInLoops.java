@@ -1,36 +1,25 @@
 package hust.soict.globalict.garbage;
 
-import java.util.Random;
-
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 public class ConcatenationInLoops {
-
-	private static String str;
-
-	public static void main(String[] args) {
-		Random r = new Random(123);
-//		System.err.println(r.nextInt());
-//		System.err.println(r.nextInt());
-//		System.err.println(r.nextInt());
-		long start = System.currentTimeMillis();
-		String str = "";
-		for(int i = 0; i < 65536; i++)
-			str += r.nextInt(2);
-		System.out.println(System.currentTimeMillis() - start);
-		
-		r = new Random(123);
-		start = System.currentTimeMillis();
-		StringBuilder sBuilder = new StringBuilder();
-		for(int i = 0; i < 65536; i++)
-			sBuilder.append(r.nextInt(2));
-		str = sBuilder.toString();
-		System.out.println(System.currentTimeMillis() - start);
-		
-		r = new Random(123);
-		start = System.currentTimeMillis();
-		StringBuffer sBuffer = new StringBuffer();
-		for(int i = 0; i < 65536; i++)
-			sBuffer.append(r.nextInt(2));
-		str = sBuffer.toString();
-		System.out.println(System.currentTimeMillis() - start);
+	public static void main(String[] args) throws IOException {
+	String filename ="test.txt";
+	byte[] inputBytes= {0};
+	long startTime, endTime;
+	
+	inputBytes = Files.readAllBytes(Paths.get(filename));
+	startTime =System.currentTimeMillis();
+	
+	//endTime = 4
+	StringBuilder outputStringBuilder = new StringBuilder();
+	for(byte b: inputBytes) {
+		outputStringBuilder.append((char)b);
+	}
+	//endTime = 174 -> take too much time for long file
+	endTime= System.currentTimeMillis();
+	System.out.println(endTime - startTime);
+	
 	}
 }

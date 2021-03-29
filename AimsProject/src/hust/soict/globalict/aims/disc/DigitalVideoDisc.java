@@ -1,11 +1,13 @@
 package hust.soict.globalict.aims.disc;
 
+import java.time.LocalDate;
 public class DigitalVideoDisc {
     private String title;
     private String category;
     private String director;
     private int length;
     private float cost;
+	private LocalDate dateAdded;
     private static int nbDigitalVideoDiscs = 0;
 	private int id;
 
@@ -47,33 +49,32 @@ public class DigitalVideoDisc {
 	}
 // ------------------------------ ------------------------------
     public DigitalVideoDisc() {
+		this.dateAdded= LocalDate.now();
+		nbDigitalVideoDiscs++;
+		this.id = nbDigitalVideoDiscs;
     } 
-
-    public DigitalVideoDisc( String title) {
-        this.title = title;
-    }
-    public DigitalVideoDisc(int id, String title) {
-        this.id = id;
+    public DigitalVideoDisc(String title) {
+		super();
         this.title = title;
     }
 
-    public DigitalVideoDisc(int id, String title, String category, float cost) {
-        this.id = id;
+    public DigitalVideoDisc(String title, String category, float cost) {
+		super();
         this.title = title;
         this.category = category;
         this.cost = cost;
     }
 
-    public DigitalVideoDisc(int id, String title, String category, String director, float cost) {
-        this.id = id;
+    public DigitalVideoDisc(String title, String category, String director, float cost) {
+		super();
         this.title = title;
         this.category = category;
         this.director = director;
         this.cost = cost;
     }
 
-    public DigitalVideoDisc(int id, String title, String category, String director, int length, float cost) {
-        this.id = id;
+    public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
+		super();
         this.title = title;
         this.category = category;
         this.director = director;
@@ -97,6 +98,9 @@ public class DigitalVideoDisc {
     public String getDetail() {
 		return ("DVD - " + this.title+ " - " + this.category + " - " +
 				this.director + " - "+ this.length + ": " + this.cost + "$");
+	}
+	public String viewInStore() {
+		return ("DVD - " + this.id + ". " + this.title + " - " + this.director);
 	}
 }
 

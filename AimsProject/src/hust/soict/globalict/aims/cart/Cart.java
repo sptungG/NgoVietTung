@@ -86,12 +86,12 @@ public class Cart {
 		int i = 0;
 		while(i < qtyOrdered && found  == 0) {
 			if(itemsOrdered[i].getId() == id) {
-				System.out.println("----A match DVD is found: " + id +" ."+ itemsOrdered[i].getDetail());
+				System.out.println("----A match DVD is found: [" + id +" ."+ itemsOrdered[i].getDetail() + "]");
 				found =1;
 			}
 			i++;
 		}
-		if(found == 0) System.out.println("----<!>No match DVD with ID: " + id + " is found");
+		if(found == 0) System.out.println("----<!>No match DVD with ID: [" + id + "] is found");
 	}
     public void searchByTitle() {
         int mark = 0;
@@ -102,7 +102,7 @@ public class Cart {
         for(DigitalVideoDisc disc: itemsOrdered) {
             if(disc != null && disc.search(title)) {
                 mark = 1;
-                System.out.println("---- "+ disc.getTitle());
+                System.out.println("---- ["+ disc.getTitle()+"]");
                 }
             }
         if(mark == 0) {

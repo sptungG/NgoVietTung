@@ -1,10 +1,12 @@
-package hust.soict.globalict.aims;
+package hust.soict.globalict.aims.store;
 
-import hust.soict.globalict.aims.cart.*;
 import hust.soict.globalict.aims.disc.*;
-public class DiskTest {
-  public static void main(String[] args) {
-        //add DVD to the cart
+
+public class StoreTest {
+	public static void main(String[] args) {
+		Store anItem = new Store();
+		
+		// Create new dvd objects and add them to the store
         DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95f);
         DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", "Science Fiction", "George Lucas", 87, 24.95f);
         DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", 19.95f);
@@ -13,17 +15,16 @@ public class DiskTest {
         DigitalVideoDisc dvd6= new DigitalVideoDisc("Harry Potter and the Order of Phoenix", "Fantasy", 
 				"David Yates", 147 , 24.5f);
 		DigitalVideoDisc dvd7= new DigitalVideoDisc("Avatar", "Science Fiction", 20.6f);
-        // anOrder.addDigitalVideoDisc(dvd7);
-        //show the cart
-        
-        // anOrder.addDigitalVideoDisc(dvd1, dvd2);
-        DigitalVideoDisc[] allDVDList = {dvd1, dvd2, dvd3, dvd4, dvd5, dvd6, dvd7};
-        DigitalVideoDisc[] tempDVDList = {dvd1, dvd2, dvd3, dvd4, dvd6};  
+		anItem.addDVD(dvd1, dvd2, dvd3, dvd4, dvd5, dvd6, dvd7);
+		
+		// remove disc from the store
+		anItem.removeDVD(dvd5);
+		anItem.removeDVD(dvd5);
+		anItem.addDVD(dvd6);
+		anItem.removeDVD(dvd6);
+		anItem.removeDVD(dvd6);
+		
+		anItem.viewStore();
 
-        Cart anOrder = new Cart();
-        anOrder.addDigitalVideoDisc(tempDVDList);
-
-        // test search title
-        anOrder.searchByTitle();
-    }
+	}
 }
