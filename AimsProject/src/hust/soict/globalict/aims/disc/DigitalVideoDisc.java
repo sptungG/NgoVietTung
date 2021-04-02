@@ -65,18 +65,13 @@ public class DigitalVideoDisc {
         DigitalVideoDisc.nbDigitalVideoDiscs = nbDigitalVideoDiscs;
     }
 // ------------------------------ ------------------------------
-    public DigitalVideoDisc() {
-		this.dateAdded= LocalDate.now();
-		nbDigitalVideoDiscs++;
-		this.id = nbDigitalVideoDiscs;
-    } 
-    public DigitalVideoDisc(String title) {
-		super();
-        this.title = title;
-		this.dateAdded= LocalDate.now();
-		nbDigitalVideoDiscs++;
-		this.id = nbDigitalVideoDiscs;
-    }
+public DigitalVideoDisc(String title) {
+	super();
+	this.title = title;
+	this.dateAdded= LocalDate.now();
+	nbDigitalVideoDiscs++;
+	this.id = nbDigitalVideoDiscs;
+}
 
     public DigitalVideoDisc(String title, String category, float cost) {
 		super();
@@ -98,7 +93,7 @@ public class DigitalVideoDisc {
 		nbDigitalVideoDiscs++;
 		this.id = nbDigitalVideoDiscs;
     }
-
+	
     public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
 		super();
         this.title = title;
@@ -110,7 +105,17 @@ public class DigitalVideoDisc {
 		nbDigitalVideoDiscs++;
 		this.id = nbDigitalVideoDiscs;
     }
-// ------------------------------ ------------------------------
+	public DigitalVideoDisc(String title, String category, String director, int length, float cost, int id) {
+		super();
+        this.title = title;
+        this.category = category;
+        this.director = director;
+        this.length = length;
+        this.cost = cost;
+		this.dateAdded= LocalDate.now();
+		this.id = id;
+	} 
+	// ------------------------------ ------------------------------
 	public boolean search(String title) {
 		String[] input = title.toLowerCase().split(" ");
 		for (int i = 0; i < input.length; i++) {

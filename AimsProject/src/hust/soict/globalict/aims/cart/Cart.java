@@ -110,6 +110,36 @@ public class Cart {
         }
             sc.close();
     }
+	public void removeByID(int id) {
+		int mark = 0;
+		int i = 0;
+		while(i < qtyOrdered && mark == 0) {
+			if(itemsOrdered[i].getId() == id) {
+				removeDigitalVideoDisc(itemsOrdered[i]);
+				mark = 1;
+			}
+			i++;
+		}
+		if(mark == 0) System.out.println("----<!>[Removed Fail] No match DVD with ID: [" + id + "] is found");
+	}
+	
+	public void emptyCart() {
+		while( qtyOrdered != 0 ) {
+			removeDigitalVideoDisc(itemsOrdered[0]);
+		}
+	}
+	// check whether a disc in cart by id
+	public int checkId(int id) {
+		int mark = 0;
+		int i = 0;
+		while(i < qtyOrdered) {
+			if(itemsOrdered[i].getId()==id) {
+				mark++;
+			}
+			i++;
+		}
+		return mark;
+	}
 // ------------------------------ ------------------------------
     public float totalCost(){
         float total = 0;
