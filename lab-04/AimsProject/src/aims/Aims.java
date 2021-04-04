@@ -26,7 +26,7 @@ public class Aims {
 
 		// anOrder.addDigitalVideoDisc(dvd1, dvd2);
 		DigitalVideoDisc[] allDVDList = {dvd1, dvd2, dvd3, dvd4, dvd5, dvd6, dvd7};
-        DigitalVideoDisc[] tempDVDList = {dvd1, dvd2, dvd3, dvd4, dvd6};  
+        DigitalVideoDisc[] tempDVDList = {dvd1, dvd2, dvd3, dvd4, dvd6};   
 
         anOrder.addDigitalVideoDisc(tempDVDList);
 		//sortByCost
