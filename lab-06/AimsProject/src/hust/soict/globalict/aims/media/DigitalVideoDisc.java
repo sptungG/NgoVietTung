@@ -68,7 +68,7 @@ public class DigitalVideoDisc extends Media {
 	}
 	@Override
 	public String getDetail() {
-		return ("ID:" + this.id + " - DVD - " + this.title+ " - " + this.category + " - " +
+		return ("ID: " + this.id + " - DVD - " + this.title+ " - " + this.category + " - " +
 		this.director + " - "+ this.length + ": " + this.cost + "$");
 	}
 }

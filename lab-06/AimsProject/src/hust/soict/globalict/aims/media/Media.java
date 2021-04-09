@@ -67,7 +67,7 @@ public abstract class Media {
         this.cost = cost;
         this.id = id;
     }
-    
+// ------------------------------
     public boolean search(String title){
         int count=0;
         String[] s1 = getTitle().split("\\s");
@@ -82,7 +82,7 @@ public abstract class Media {
         if(count==s2.length) return true;
         else return false;
     }
-
+// ------------------------------
     public abstract String getDetail();
     public abstract String viewInStore();
 

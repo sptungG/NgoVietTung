@@ -7,39 +7,6 @@ import hust.soict.globalict.aims.media.*;
 import hust.soict.globalict.aims.store.*;
 
 public class Aims {
-    public static void showMenu() {
-		System.out.println("[Main Menu] AIMS: ");
-		System.out.println("--------------------------------");
-		System.out.println("1. View store");
-		System.out.println("2. Update store");
-		System.out.println("3. See current cart");
-		System.out.println("0. Exit");
-		System.out.println("--------------------------------");
-		System.out.println("Please choose a number: 0-1-2-3");
-	}
-	public static void storeMenu() {
-		System.out.println("[Store] Options: ");
-		System.out.println("--------------------------------");
-        System.out.println("1. See a media’s details");
-		System.out.println("2. Add a media to cart");
-		System.out.println("3. See current cart");
-		System.out.println("0. Exit")
-		System.out.println("--------------------------------");
-		System.out.println("Please choose a number: 0-1-2-3");
-	}
-
-	public static void cartMenu() {
-		System.out.println("[Cart] Options: ");
-		System.out.println("--------------------------------");
-		System.out.println("1. Filter medias in cart");
-		System.out.println("2. Sort medias in cart");
-		System.out.println("3. Remove media from cart");
-		System.out.println("4. Get a lucky item from cart");
-		System.out.println("5. Place order");
-		System.out.println("0. Exit");
-		System.out.println("--------------------------------");
-		System.out.println("Please choose a number: 0-1-2-3-4-5");
-	}
 	public static void main(String[] args) {
         //create a new cart
         Cart anOrder = new Cart();
@@ -75,37 +42,11 @@ public class Aims {
 		Book book10= new Book("Doraemon 7", "Comic", "Anywhere Door, a pink-colored door that allows people to travel according to the thoughts of the person who turns the knob", 4.25f);
 		book10.addAuthor("Fujiko Fujio");
         anItem.addMedia(book1, book2, book3, book4, book5, book6, book7, book8, book9, book10);
-        //show the cart
-/*
-		// anOrder.addDigitalVideoDisc(dvd1, dvd2);
-		DigitalVideoDisc[] allDVDList = {dvd1, dvd2, dvd3, dvd4, dvd5, dvd6, dvd7};
-        DigitalVideoDisc[] tempDVDList = {dvd1, dvd2, dvd3, dvd4, dvd6};  
 
-        anOrder.addDigitalVideoDisc(tempDVDList);
-		//sortByCost
-		anOrder.sortByCost(tempDVDList);
-		//sortByTitle
-		anOrder.sortByTitle(tempDVDList);
-        System.out.println("\n---- Print Bill: ");
-        anOrder.orderedBill();
-        // Search by Id
-		anOrder.searchByID(5);
-		anOrder.searchByID(1);
-		System.out.println("\n");
-        //remove DVD from the cart
-        anOrder.removeDigitalVideoDisc(dvd4);
-        anOrder.removeDigitalVideoDisc(dvd5);
-		anOrder.removeDigitalVideoDisc(dvd6);
-		anOrder.removeDigitalVideoDisc(dvd6);		
-		System.out.println("\n---- Print Bill: ");
-        anOrder.orderedBill();
-        //print total cost
-        System.out.print("Total Cost is: " + anOrder.totalCost() + " $");
-*/
-Media tmpMedia;
-DigitalVideoDisc disc;
-Book book;
-int count = 0;
+        Media tmpMedia;
+        DigitalVideoDisc dvd;
+        Book book;
+
 try (Scanner keyboard = new Scanner(System.in)) {
     int choice;
     int show;
@@ -139,7 +80,6 @@ try (Scanner keyboard = new Scanner(System.in)) {
                         System.out.print("==== Enter Media's ID to see details: ");
                         int id = keyboard.nextInt();
                         tmpMedia = anItem.searchByID(id);
-
                         if (tmpMedia!=null) {
                             System.out.println(tmpMedia.getDetail());
                             System.out.println("[??] Do you want to add the Media to the cart?");
@@ -149,9 +89,9 @@ try (Scanner keyboard = new Scanner(System.in)) {
                             choice = keyboard.nextInt();
                             if(choice ==1) {
                                 if(tmpMedia instanceof DigitalVideoDisc) {
-                                    disc = (DigitalVideoDisc)tmpMedia;
-                                    anOrder.addMedia(new DigitalVideoDisc(disc.getTitle(), disc.getCategory(),disc.getDirector(),
-                                        disc.getLength(), disc.getCost(), disc.getId()));
+                                    dvd = (DigitalVideoDisc)tmpMedia;
+                                    anOrder.addMedia(new DigitalVideoDisc(dvd.getTitle(), dvd.getCategory(),dvd.getDirector(),
+                                        dvd.getLength(), dvd.getCost(), dvd.getId()));
                                 }
                                 else if(tmpMedia instanceof Book) {
                                     book=(Book)tmpMedia;
@@ -173,9 +113,9 @@ try (Scanner keyboard = new Scanner(System.in)) {
                         
                         if(tmpMedia!=null) {
                             if(tmpMedia instanceof DigitalVideoDisc) {
-                                disc=(DigitalVideoDisc)tmpMedia;
-                                anOrder.addMedia(new DigitalVideoDisc(disc.getTitle(), disc.getCategory(),disc.getDirector(),
-                                    disc.getLength(), disc.getCost(), disc.getId()));
+                                dvd=(DigitalVideoDisc)tmpMedia;
+                                anOrder.addMedia(new DigitalVideoDisc(dvd.getTitle(), dvd.getCategory(),dvd.getDirector(),
+                                    dvd.getLength(), dvd.getCost(), dvd.getId()));
                             }
                             else if(tmpMedia instanceof Book) {
                                 book=(Book)tmpMedia;
@@ -240,8 +180,10 @@ try (Scanner keyboard = new Scanner(System.in)) {
                                 break;
                             // ======================================
                             case 4:
+                                anOrder.getFreeItem();
+                                break;
+                            case 5:
                                 anOrder.emptyCart();
-                                System.out.println("---- An order is created");
                                 break;
                             // ======================================
                             default:
@@ -268,38 +210,40 @@ try (Scanner keyboard = new Scanner(System.in)) {
                 System.out.println("2. Remove Media");
                 System.out.print(">>>> Your choice: ");
                 choice = keyboard.nextInt();
-                
+                // ======================================
                 if(choice ==1) {
                     System.out.println("1. Add DVD");
                     System.out.println("2. Add Book");
-                    System.out.print("Your choice: ");
+                    System.out.print(">> Your choice: ");
                     int addChoice = keyboard.nextInt();
-                    if(addChoice ==1) {
+                    // ======================================
+                    if(addChoice == 1) {
                         keyboard.nextLine();
-                        System.out.print("Enter Title: ");
-                        String title =keyboard.nextLine();
-                        System.out.print("Enter Category: ");
-                        String category=keyboard.nextLine();
-                        System.out.print("Enter Director: ");
-                        String director=keyboard.nextLine();
-                        System.out.print("Enter Length: ");
-                        int length=keyboard.nextInt();
-                        System.out.print("Enter Cost: ");
-                        float cost=keyboard.nextFloat();
+                        System.out.print("==== Enter Title: ");
+                        String title = keyboard.nextLine();
+                        System.out.print("==== Enter Category: ");
+                        String category = keyboard.nextLine();
+                        System.out.print("==== Enter Director: ");
+                        String director = keyboard.nextLine();
+                        System.out.print("==== Enter Length: ");
+                        int length = keyboard.nextInt();
+                        System.out.print("==== Enter Cost: ");
+                        float cost = keyboard.nextFloat();
                         anItem.addMedia(new DigitalVideoDisc(title, category, director, length, (float)cost));
                     }
-                    else if(addChoice ==2) {
+                    // ======================================
+                    else if(addChoice == 2) {
                         keyboard.nextLine();
-                        System.out.print("Enter Title: ");
-                        String title =keyboard.nextLine();
-                        System.out.print("Enter Category: ");
-                        String category=keyboard.nextLine();
-                        System.out.print("Enter Author: ");
-                        String Author=keyboard.nextLine();
-                        System.out.print("Enter Content: ");
-                        String content=keyboard.nextLine();
-                        System.out.print("Enter Cost: ");
-                        float cost=keyboard.nextFloat();
+                        System.out.print("==== Enter Title: ");
+                        String title = keyboard.nextLine();
+                        System.out.print("==== Enter Category: ");
+                        String category = keyboard.nextLine();
+                        System.out.print("==== Enter Author: ");
+                        String Author = keyboard.nextLine();
+                        System.out.print("==== Enter Content: ");
+                        String content = keyboard.nextLine();
+                        System.out.print("==== Enter Cost: ");
+                        float cost = keyboard.nextFloat();
                         book= new Book(title, category, content, (float)cost);
                         book.addAuthor(Author);
                         anItem.addMedia(book);
@@ -307,6 +251,7 @@ try (Scanner keyboard = new Scanner(System.in)) {
                     else System.out.println("----<!> Wrong functionality!");
                     
                 }
+                // ======================================
                 else if(choice == 2) {
                     System.out.print("==== Enter Media's ID to remove from store: ");
                     int id = keyboard.nextInt();
@@ -343,7 +288,7 @@ try (Scanner keyboard = new Scanner(System.in)) {
                         System.out.print(">>>>Your choice: ");
                         choice = keyboard.nextInt();
                         if(choice ==1) {
-                            System.out.print("==== Enter DVD's ID: ");
+                            System.out.print("==== Enter Media's ID: ");
                             int id = keyboard.nextInt();
                             anOrder.searchByID(id);
                         }
@@ -392,10 +337,69 @@ try (Scanner keyboard = new Scanner(System.in)) {
                 System.out.println("----<!> Wrong statement! Please choose again.\n");
                 break;
         }
-
     }while(show!=0);
 }
 
 }
 
+public static void showMenu() {
+    System.out.println("[Main Menu] AIMS: ");
+    System.out.println("--------------------------------");
+    System.out.println("1. View store");
+    System.out.println("2. Update store");
+    System.out.println("3. See current cart");
+    System.out.println("0. Exit");
+    System.out.println("--------------------------------");
+    System.out.println("Please choose a number: 0-1-2-3");
 }
+public static void storeMenu() {
+    System.out.println("[Store] Options: ");
+    System.out.println("--------------------------------");
+    System.out.println("1. See a media’s details");
+    System.out.println("2. Add a media to cart");
+    System.out.println("3. See current cart");
+    System.out.println("0. Exit");
+    System.out.println("--------------------------------");
+    System.out.println("Please choose a number: 0-1-2-3");
+}
+
+public static void cartMenu() {
+    System.out.println("[Cart] Options: ");
+    System.out.println("--------------------------------");
+    System.out.println("1. Filter medias in cart");
+    System.out.println("2. Sort medias in cart");
+    System.out.println("3. Remove media from cart");
+    System.out.println("4. Get a lucky item from cart");
+    System.out.println("5. Place order");
+    System.out.println("0. Exit");
+    System.out.println("--------------------------------");
+    System.out.println("Please choose a number: 0-1-2-3-4-5");
+}
+}
+
+/*
+		// anOrder.addDigitalVideoDisc(dvd1, dvd2);
+		DigitalVideoDisc[] allDVDList = {dvd1, dvd2, dvd3, dvd4, dvd5, dvd6, dvd7};
+        DigitalVideoDisc[] tempDVDList = {dvd1, dvd2, dvd3, dvd4, dvd6};  
+
+        anOrder.addDigitalVideoDisc(tempDVDList);
+		//sortByCost
+		anOrder.sortByCost(tempDVDList);
+		//sortByTitle
+		anOrder.sortByTitle(tempDVDList);
+        System.out.println("\n---- Print Bill: ");
+        anOrder.orderedBill();
+        // Search by Id
+		anOrder.searchByID(5);
+		anOrder.searchByID(1);
+		System.out.println("\n");
+        //remove DVD from the cart
+        anOrder.removeDigitalVideoDisc(dvd4);
+        anOrder.removeDigitalVideoDisc(dvd5);
+		anOrder.removeDigitalVideoDisc(dvd6);
+		anOrder.removeDigitalVideoDisc(dvd6);		
+		System.out.println("\n---- Print Bill: ");
+        anOrder.orderedBill();
+        //print total cost
+        System.out.print("Total Cost is: " + anOrder.totalCost() + " $");
+*/

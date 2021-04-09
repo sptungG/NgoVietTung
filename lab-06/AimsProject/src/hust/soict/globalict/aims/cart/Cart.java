@@ -21,12 +21,12 @@ public class Cart {
                         "] hasn't been added. The order is almost full.");
         }
     }
-    
+// ------------------------------ 
     public void addMedia(Media... mediaList) {
         for (int i = 0; i < mediaList.length ; i++) {
             if(itemsOrdered.size() < MAX_NUMBERS_ORDERED){
                 itemsOrdered.add(mediaList[i]);
-                System.out.println("----The disc named [" + mediaList[i].getTitle() + 
+                System.out.println("----The Media named [" + mediaList[i].getTitle() + 
                         "] has been added.");
                 if(itemsOrdered.size() == 19) System.out.println("The cart is almost full.");
                 if(itemsOrdered.size() == 20) System.out.println("The cart is full.");  
@@ -37,7 +37,6 @@ public class Cart {
             }
         }
     }
-
 // ------------------------------ ------------------------------
     public void removeMedia(Media media){
         int mark = 0;
@@ -71,6 +70,7 @@ public class Cart {
 			System.out.println(i+1+ ". " + itemsOrdered.get(i).getDetail());
 		}
     }
+	// ------------------------------ 
     public void sortByTitle() {
 		int n= itemsOrdered.size();
 	    for (int i = 0; i < n-1; i++){
@@ -102,11 +102,12 @@ public class Cart {
 		}
 		if(found == 0) System.out.println("----<!>No match DVD with ID: [" + id + "] is found");
 	}
+	// ------------------------------ 
     public void searchByTitle() {
         int mark = 0;
-        Scanner sc = new Scanner(System.in);
+        Scanner keyboard = new Scanner(System.in);
         System.out.println("====[Search by Title] Enter the title:");
-        String title = sc.nextLine();
+        String title = keyboard.nextLine();
         System.out.println("==== Results: ");
         for(Media media: itemsOrdered) {
             if(media != null && media.search(title)) {
@@ -117,31 +118,31 @@ public class Cart {
         if(mark == 0) {
             System.out.println("----<!> ["+ title +"] is not matched.");
         }
-            sc.close();
+            keyboard.close();
     }
     // ------------------------------ ------------------------------
 	public void removeByID(int id) {
 		int mark = 0;
-		int i = 0;
-		while(i < itemsOrdered.size() && mark == 0) {
-			if(itemsOrdered.get(i).getId() == id) {
-				removeMedia(itemsOrdered.get(i));
+		int index = 0;
+		while(index < itemsOrdered.size() && mark == 0) {
+			if(itemsOrdered.get(index).getId() == id) {
+				removeMedia(itemsOrdered.get(index));
 				mark = 1;
 			}
-			i++;
+			index++;
 		}
 		if(mark == 0) System.out.println("----<!>[Removed Fail] No match DVD with ID: [" + id + "] is found");
 	}
 	
 	// ------------------------------ ------------------------------
 	public void emptyCart() {
-		if(itemsOrdered.size()>0) {
-			while(itemsOrdered.size()!=0) {
+		if(itemsOrdered.size() > 0) {
+			while(itemsOrdered.size() != 0) {
 				removeMedia(itemsOrdered.get(0));
 			}
-			System.out.println("An order is created");
+			System.out.println("---- An order is created");
 		}
-		else System.out.println("Can't create order. The cart is empty!");
+		else System.out.println("----<!> Can't create order. The cart is empty!");
 	}
 // ------------------------------ ------------------------------
     public Media getALuckyItem() {
@@ -152,30 +153,30 @@ public class Cart {
 		return itemsOrdered.get(rand);
 	}
 	public void getFreeItem() {
-		int flag=0;
-		for(int i=0; i<itemsOrdered.size(); i++) {
-			if(itemsOrdered.get(i).getCost()==0.0f) flag=1;
+		int mark = 0;
+		for(int index = 0; index < itemsOrdered.size(); index++) {
+			if(itemsOrdered.get(index).getCost() == 0.0f) mark = 1;
 		}
 		if(itemsOrdered.size()>1) {
-			if(flag==0) {
-				System.out.println("Get lucky item: ");
+			if(mark == 0) {
+				System.out.println("====[LuckyItem] Get lucky item: ");
 				System.out.println(getALuckyItem().getDetail());
-				flag=1;
+				mark = 1;
 			}
-			else System.out.println("You already has a lucky item in the cart");
+			else System.out.println("----<!> You already has a lucky item in the cart");
 		}
-		else System.out.println("Can't get a lucky item. The quantity of items in cart is too small!");
+		else System.out.println("----<!> Can't get a lucky item. The quantity of items in cart is too small!");
 	}
 // ------------------------------ ------------------------------
-	// check whether a mdeia in cart by id
+	// check whether a media in cart by id
 	public int checkId(int id) {
 		int mark = 0;
-		int i = 0;
-		while(i < itemsOrdered.size()) {
-			if(itemsOrdered.get(i).getId()==id) {
+		int index = 0;
+		while(index < itemsOrdered.size()) {
+			if(itemsOrdered.get(index).getId()==id) {
 				mark++;
 			}
-			i++;
+			index++;
 		}
 		return mark;
 	}
