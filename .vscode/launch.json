@@ -1,0 +1,154 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch Aims",
+            "request": "launch",
+            "mainClass": "AimsProject/aims.Aims",
+            "projectName": "AimsProject (6)"
+        },
+        {
+            "type": "java",
+            "name": "Launch DVDTest",
+            "request": "launch",
+            "mainClass": "AimsProject/aims.DVDTest",
+            "projectName": "AimsProject (6)"
+        },
+        {
+            "type": "java",
+            "name": "Launch TestPassingParameter",
+            "request": "launch",
+            "mainClass": "AimsProject/aims.TestPassingParameter",
+            "projectName": "AimsProject (6)"
+        },
+        {
+            "type": "java",
+            "name": "Launch Aims(1)",
+            "request": "launch",
+            "mainClass": "AimsProject/hust.soict.globalict.aims.Aims",
+            "projectName": "AimsProject (7)"
+        },
+        {
+            "type": "java",
+            "name": "Launch DiskTest",
+            "request": "launch",
+            "mainClass": "AimsProject/hust.soict.globalict.aims.DiskTest",
+            "projectName": "AimsProject (7)"
+        },
+        {
+            "type": "java",
+            "name": "Launch StoreTest",
+            "request": "launch",
+            "mainClass": "AimsProject/hust.soict.globalict.aims.store.StoreTest",
+            "projectName": "AimsProject (7)"
+        },
+        {
+            "type": "java",
+            "name": "Launch TestPassingParameter(1)",
+            "request": "launch",
+            "mainClass": "AimsProject/hust.soict.globalict.test.disc.TestPassingParameter",
+            "projectName": "AimsProject (7)"
+        },
+        {
+            "type": "java",
+            "name": "Launch DVDTest(1)",
+            "request": "launch",
+            "mainClass": "AimsProject/hust.soict.globalict.test.utils.DVDTest",
+            "projectName": "AimsProject (7)"
+        },
+        {
+            "type": "java",
+            "name": "Launch Aims(2)",
+            "request": "launch",
+            "mainClass": "AimsProject/hust.soict.globalict.aims.Aims",
+            "projectName": "AimsProject (8)"
+        },
+        {
+            "type": "java",
+            "name": "Launch DiskTest(1)",
+            "request": "launch",
+            "mainClass": "AimsProject/hust.soict.globalict.aims.DiskTest",
+            "projectName": "AimsProject (8)"
+        },
+        {
+            "type": "java",
+            "name": "Launch StoreTest(1)",
+            "request": "launch",
+            "mainClass": "AimsProject/hust.soict.globalict.aims.store.StoreTest",
+            "projectName": "AimsProject (8)"
+        },
+        {
+            "type": "java",
+            "name": "Launch TestPassingParameter(2)",
+            "request": "launch",
+            "mainClass": "AimsProject/hust.soict.globalict.test.disc.TestPassingParameter",
+            "projectName": "AimsProject (8)"
+        },
+        {
+            "type": "java",
+            "name": "Launch DVDTest(2)",
+            "request": "launch",
+            "mainClass": "AimsProject/hust.soict.globalict.test.utils.DVDTest",
+            "projectName": "AimsProject (8)"
+        },
+        {
+            "type": "java",
+            "name": "Launch Aims(3)",
+            "request": "launch",
+            "mainClass": "AimsProject/aims.Aims",
+            "projectName": "AimsProject"
+        },
+        {
+            "type": "java",
+            "name": "Launch ConcatenationInLoops",
+            "request": "launch",
+            "mainClass": "OtherProjects/hust.soict.globalict.garbage.ConcatenationInLoops",
+            "projectName": "OtherProjects (2)"
+        },
+        {
+            "type": "java",
+            "name": "Launch GarbageCreator",
+            "request": "launch",
+            "mainClass": "OtherProjects/hust.soict.globalict.garbage.GarbageCreator",
+            "projectName": "OtherProjects (2)"
+        },
+        {
+            "type": "java",
+            "name": "Launch NoGarbage",
+            "request": "launch",
+            "mainClass": "OtherProjects/hust.soict.globalict.garbage.NoGarbage",
+            "projectName": "OtherProjects (2)"
+        },
+        {
+            "type": "java",
+            "name": "Launch ConcatenationInLoops(1)",
+            "request": "launch",
+            "mainClass": "OtherProjects/hust.soict.globalict.garbage.ConcatenationInLoops",
+            "projectName": "OtherProjects (3)"
+        },
+        {
+            "type": "java",
+            "name": "Launch GarbageCreator(1)",
+            "request": "launch",
+            "mainClass": "OtherProjects/hust.soict.globalict.garbage.GarbageCreator",
+            "projectName": "OtherProjects (3)"
+        },
+        {
+            "type": "java",
+            "name": "Launch NoGarbage(1)",
+            "request": "launch",
+            "mainClass": "OtherProjects/hust.soict.globalict.garbage.NoGarbage",
+            "projectName": "OtherProjects (3)"
+        }
+    ]
+}
