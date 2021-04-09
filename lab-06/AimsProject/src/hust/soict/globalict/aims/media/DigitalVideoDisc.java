@@ -2,136 +2,74 @@ package hust.soict.globalict.aims.media;
 
 import java.time.LocalDate;
 
-public class DigitalVideoDisc {
-    private String title;
-    private String category;
-    private String director;
-    private int length;
-    private float cost;
-	private LocalDate dateAdded;
-    private static int nbDigitalVideoDiscs = 0;
-	private int id;
+public class DigitalVideoDisc extends Media {
 
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public String getCategory() {
-		return category;
-	}
-	public void setCategory(String category) {
-		this.category = category;
-	}
+	private String director;
+	private int length;
+	//Generate Getters and Setters
+
 	public String getDirector() {
 		return director;
-	}
-	public void setDirector(String director) {
-		this.director = director;
 	}
 	public int getLength() {
 		return length;
 	}
+	public void setDirector(String director) {
+		this.director = director;
+	}
 	public void setLength(int length) {
 		this.length = length;
 	}
-	public float getCost() {
-		return cost;
-	}
-	public void setCost(float cost) {
-		this.cost = cost;
-	}
-    public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-// ------------------------------ ------------------------------
-    public LocalDate getDateAdded() {
-        return dateAdded;
-    }
-
-    public void setDateAdded(LocalDate dateAdded) {
-        this.dateAdded = dateAdded;
-    }
-
-    public static int getNbDigitalVideoDiscs() {
-        return nbDigitalVideoDiscs;
-    }
-
-    public static void setNbDigitalVideoDiscs(int nbDigitalVideoDiscs) {
-        DigitalVideoDisc.nbDigitalVideoDiscs = nbDigitalVideoDiscs;
-    }
-// ------------------------------ ------------------------------
-public DigitalVideoDisc(String title) {
-	super();
-	this.title = title;
-	this.dateAdded= LocalDate.now();
-	nbDigitalVideoDiscs++;
-	this.id = nbDigitalVideoDiscs;
-}
-
-    public DigitalVideoDisc(String title, String category, float cost) {
-		super();
-        this.title = title;
-        this.category = category;
-        this.cost = cost;
+	//Create a DVD object by title
+	public DigitalVideoDisc(String title) {
+		super(title);
 		this.dateAdded= LocalDate.now();
-		nbDigitalVideoDiscs++;
-		this.id = nbDigitalVideoDiscs;
-    }
+		nbMedias++;
+		this.id = nbMedias;
+	}
 
-    public DigitalVideoDisc(String title, String category, String director, float cost) {
-		super();
-        this.title = title;
-        this.category = category;
-        this.director = director;
-        this.cost = cost;
+	//Create a DVD object by category, title and cost
+	public DigitalVideoDisc(String title, String category, float cost) {
+		super(title, category, cost);
 		this.dateAdded= LocalDate.now();
-		nbDigitalVideoDiscs++;
-		this.id = nbDigitalVideoDiscs;
-    }
-	
-    public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
-		super();
-        this.title = title;
-        this.category = category;
-        this.director = director;
-        this.length = length;
-        this.cost = cost;
+		nbMedias++;
+		this.id = nbMedias;
+	}
+	//Create a DVD object by director, category, title and cost
+	public DigitalVideoDisc(String title, String category, String director, float cost) {
+		super(title, category, cost);
+		this.director = director;
 		this.dateAdded= LocalDate.now();
-		nbDigitalVideoDiscs++;
-		this.id = nbDigitalVideoDiscs;
-    }
+		nbMedias++;
+		this.id = nbMedias;
+	}
+	//Create a DVD object by all attributes: title, category, director, length and cost
+	public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
+		super(title, category, cost);
+		this.director = director;
+		this.length = length;
+		this.dateAdded= LocalDate.now();
+		nbMedias++;
+		this.id = nbMedias;
+	}
 	public DigitalVideoDisc(String title, String category, String director, int length, float cost, int id) {
-		super();
-        this.title = title;
-        this.category = category;
-        this.director = director;
-        this.length = length;
-        this.cost = cost;
+		super(id,title, category, cost);
+		this.director = director;
+		this.length = length;
 		this.dateAdded= LocalDate.now();
 		this.id = id;
-	} 
-	// ------------------------------ ------------------------------
-	public boolean search(String title) {
-		String[] input = title.toLowerCase().split(" ");
-		for (int i = 0; i < input.length; i++) {
-			if(getTitle().toLowerCase().contains(input[i])) {
-				return true;
-			}
-		}
-		return false;
 	}
+
 // ------------------------------ ------------------------------
-    public String getDetail() {
-		return ("DVD - " + this.title+ " - " + this.category + " - " +
-				this.director + " - "+ this.length + ": " + this.cost + "$");
-	}
+// ------------------------------ ------------------------------
+	@Override
 	public String viewInStore() {
 		return ("DVD - " + this.id + ". " + this.title + " - " + this.director);
+	}
+	@Override
+	public String getDetail() {
+		return ("ID:" + this.id + " - DVD - " + this.title+ " - " + this.category + " - " +
+		this.director + " - "+ this.length + ": " + this.cost + "$");
 	}
 }
 

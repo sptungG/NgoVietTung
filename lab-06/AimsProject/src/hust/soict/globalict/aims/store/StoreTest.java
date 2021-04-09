@@ -15,14 +15,14 @@ public class StoreTest {
         DigitalVideoDisc dvd6= new DigitalVideoDisc("Harry Potter and the Order of Phoenix", "Fantasy", 
 				"David Yates", 147 , 24.5f);
 		DigitalVideoDisc dvd7= new DigitalVideoDisc("Avatar", "Science Fiction", 20.6f);
-		anItem.addDVD(dvd1, dvd2, dvd3, dvd4, dvd5, dvd6, dvd7);
+		anItem.addMedia(dvd1, dvd2, dvd3, dvd4, dvd5, dvd6, dvd7);
 		
 		// remove disc from the store
-		anItem.removeDVD(dvd5);
-		anItem.removeDVD(dvd5);
-		anItem.addDVD(dvd6);
-		anItem.removeDVD(dvd6);
-		anItem.removeDVD(dvd6);
+		anItem.removeMedia(dvd5);
+		anItem.removeMedia(dvd5);
+		anItem.addMedia(dvd6);
+		anItem.removeMedia(dvd6);
+		anItem.removeMedia(dvd6);
 		
 		anItem.viewStore();
 

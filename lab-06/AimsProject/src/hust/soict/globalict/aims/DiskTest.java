@@ -21,7 +21,7 @@ public class DiskTest {
         DigitalVideoDisc[] tempDVDList = {dvd1, dvd2, dvd3, dvd4, dvd6};  
 
         Cart anOrder = new Cart();
-        anOrder.addDigitalVideoDisc(tempDVDList);
+        anOrder.addMedia(tempDVDList);
 
         // test search title
         anOrder.searchByTitle();
