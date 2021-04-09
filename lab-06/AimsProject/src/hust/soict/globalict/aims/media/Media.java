@@ -86,43 +86,43 @@ public abstract class Media {
     public abstract String getDetail();
     public abstract String viewInStore();
 
-	public static void swap(Media media1, Media media2) {
-		// String temp = media1.getTitle();
-		// media1.setTitle(media2.getTitle());
-		// media2.setTitle(temp);
+	// public static void swap(Media media1, Media media2) {
+	// 	// String temp = media1.getTitle();
+	// 	// media1.setTitle(media2.getTitle());
+	// 	// media2.setTitle(temp);
 
-		String title = media1.getTitle();
-		String category = media1.getCategory();
-		float cost= media1.getCost();
+	// 	String title = media1.getTitle();
+	// 	String category = media1.getCategory();
+	// 	float cost= media1.getCost();
 		
-		media1.setTitle(media2.getTitle());
-		media1.setCategory(media2.getCategory());
-		media1.setCost(media2.getCost());
+	// 	media1.setTitle(media2.getTitle());
+	// 	media1.setCategory(media2.getCategory());
+	// 	media1.setCost(media2.getCost());
 		
-		media2.setTitle(title);
-		media2.setCategory(category);
-		media2.setCost(cost);
-	}
+	// 	media2.setTitle(title);
+	// 	media2.setCategory(category);
+	// 	media2.setCost(cost);
+	// }
 
-    public static Media[] sortByCost(Media...media) {
-	    for (int i = 0; i < media.length - 1; i++){
-	    	int minIndex = i;
-	    	for (int j = i+1; j < media.length; j++)
-	    		if (media[j].getCost() > media[minIndex].getCost())
-	    			minIndex = j;
-	    			swap(media[minIndex], media[i]);
-	    }
-	    return media;
-	}
+    // public static Media[] sortByCost(Media...media) {
+	//     for (int i = 0; i < media.length - 1; i++){
+	//     	int minIndex = i;
+	//     	for (int j = i+1; j < media.length; j++)
+	//     		if (media[j].getCost() > media[minIndex].getCost())
+	//     			minIndex = j;
+	//     			swap(media[minIndex], media[i]);
+	//     }
+	//     return media;
+	// }
 	
-	public static Media[] sortByTitle(Media... media) {
-	    for (int i = 0; i < media.length - 1; i++){
-	    	int minIndex = i;
-	    	for (int j = i+1; j < media.length; j++)
-	    		if (media[j].getTitle().compareTo(media[minIndex].getTitle()) < 0)
-	    			minIndex = j;
-	    			swap(media[minIndex], media[i]);
-	    }
-	    return media;
-	}
+	// public static Media[] sortByTitle(Media... media) {
+	//     for (int i = 0; i < media.length - 1; i++){
+	//     	int minIndex = i;
+	//     	for (int j = i+1; j < media.length; j++)
+	//     		if (media[j].getTitle().compareTo(media[minIndex].getTitle()) < 0)
+	//     			minIndex = j;
+	//     			swap(media[minIndex], media[i]);
+	//     }
+	//     return media;
+	// }
 }

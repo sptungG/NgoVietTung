@@ -5,6 +5,7 @@ import java.util.Scanner;
 import hust.soict.globalict.aims.cart.*;
 import hust.soict.globalict.aims.media.*;
 import hust.soict.globalict.aims.store.*;
+
 public class Aims {
     public static void showMenu() {
 		System.out.println("[Main Menu] AIMS: ");
@@ -135,22 +136,18 @@ try (Scanner keyboard = new Scanner(System.in)) {
                         break;
                     // ======================================
                     case 1:
-                        System.out.print("==== Enter DVD's ID to see details: ");
+                        System.out.print("==== Enter Media's ID to see details: ");
                         int id = keyboard.nextInt();
                         tmpMedia = anItem.searchByID(id);
 
                         if (tmpMedia!=null) {
                             System.out.println(tmpMedia.getDetail());
-                            System.out.println("[??] Do you want to add the DVD to the cart?");
+                            System.out.println("[??] Do you want to add the Media to the cart?");
                             System.out.println("1. Yes");
                             System.out.println("2. No");
                             System.out.print(">> Your choice: ");
                             choice = keyboard.nextInt();
                             if(choice ==1) {
-                                // dvd[count]= new DigitalVideoDisc(tmpMedia.getTitle(), tmpMedia.getCategory(),tmpMedia.getDirector(),
-                                //         tmpMedia.getLength(), tmpMedia.getCost(), tmpMedia.getId());
-                                // anOrder.addDigitalVideoDisc(dvd[count]);
-                                // count++;
                                 if(tmpMedia instanceof DigitalVideoDisc) {
                                     disc = (DigitalVideoDisc)tmpMedia;
                                     anOrder.addMedia(new DigitalVideoDisc(disc.getTitle(), disc.getCategory(),disc.getDirector(),
@@ -170,7 +167,7 @@ try (Scanner keyboard = new Scanner(System.in)) {
                         break;
                     // ======================================
                     case 2:
-                        System.out.print("==== Enter DVD's ID you want to add to the cart: ");
+                        System.out.print("==== Enter Media's ID you want to add to the cart: ");
                         id = keyboard.nextInt();
                         tmpMedia = anItem.searchByID(id);
                         
@@ -206,12 +203,12 @@ try (Scanner keyboard = new Scanner(System.in)) {
                             // ======================================
                             case 1:
                                 System.out.println("FILTER MEDIA IN CART: ----");
-                                System.out.println("1. By ID");
+                                System.out.println("1. By ID"); 
                                 System.out.println("2. By Title");
                                 System.out.print(">>>> Your choice: ");
                                 choice = keyboard.nextInt();
                                 if(choice ==1) {
-                                    System.out.print("==== Enter DVD's ID: ");
+                                    System.out.print("==== Enter Media's ID: ");
                                     id = keyboard.nextInt();
                                     anOrder.searchByID(id);
                                 }
@@ -228,24 +225,10 @@ try (Scanner keyboard = new Scanner(System.in)) {
                                 System.out.print(">>>> Your choice: ");
                                 choice = keyboard.nextInt();
                                 if(choice == 1) {
-                                    if(tmpMedia instanceof DigitalVideoDisc) {
-                                        disc=(DigitalVideoDisc)tmpMedia;
-                                        anOrder.sortByTitle(disc);
-                                    }
-                                    else if(tmpMedia instanceof Book) {
-                                        book=(Book)tmpMedia;
-                                        anOrder.sortByTitle(book);
-                                    }
+                                        anOrder.sortByTitle();
                                 }
                                 else if(choice ==2) {
-                                    if(tmpMedia instanceof DigitalVideoDisc) {
-                                        disc=(DigitalVideoDisc)tmpMedia;
-                                        anOrder.sortByCost(disc);
-                                    }
-                                    else if(tmpMedia instanceof Book) {
-                                        book=(Book)tmpMedia;
-                                        anOrder.sortByCost(book);
-                                    }
+                                        anOrder.sortByCost();
                                 }
                                 else System.out.println("----<!> Wrong statement!");
                                 break;
@@ -321,7 +304,7 @@ try (Scanner keyboard = new Scanner(System.in)) {
                         book.addAuthor(Author);
                         anItem.addMedia(book);
                     }
-                    else System.out.println("Wrong functionality!");
+                    else System.out.println("----<!> Wrong functionality!");
                     
                 }
                 else if(choice == 2) {
@@ -377,24 +360,10 @@ try (Scanner keyboard = new Scanner(System.in)) {
                         System.out.print(">>>> Your choice: ");
                         choice = keyboard.nextInt();
                         if(choice == 1) {
-                            if(tmpMedia instanceof DigitalVideoDisc) {
-                                disc=(DigitalVideoDisc)tmpMedia;
-                                anOrder.sortByTitle(disc);
-                            }
-                            else if(tmpMedia instanceof Book) {
-                                book=(Book)tmpMedia;
-                                anOrder.sortByTitle(book);
-                            }
+                            anOrder.sortByTitle();
                         }
                         else if(choice ==2) {
-                            if(tmpMedia instanceof DigitalVideoDisc) {
-                                disc=(DigitalVideoDisc)tmpMedia;
-                                anOrder.sortByCost(disc);
-                            }
-                            else if(tmpMedia instanceof Book) {
-                                book=(Book)tmpMedia;
-                                anOrder.sortByCost(book);
-                            }
+                            anOrder.sortByCost();
                         }
                         else System.out.println("----<!> Wrong statement!");
                         break;
@@ -428,4 +397,5 @@ try (Scanner keyboard = new Scanner(System.in)) {
 }
 
 }
+
 }

@@ -1,21 +1,12 @@
 package hust.soict.globalict.aims.cart;
 import java.util.Scanner;
 import java.util.ArrayList;
-
+import java.util.Collections;
 import hust.soict.globalict.aims.media.*;
 
 public class Cart {
     private static final int MAX_NUMBERS_ORDERED = 20;
     private ArrayList<Media> itemsOrdered = new ArrayList<Media>(20);
-    private int qtyOrdered = 0;
-
-    public int getQtyOrdered() {
-        return qtyOrdered;
-    }
-
-    public void setQtyOrdered(int qtyOrdered) {
-        this.qtyOrdered = qtyOrdered;
-    }
 // ------------------------------ ------------------------------
     public void addMedia(Media media){
         if (itemsOrdered.size() < MAX_NUMBERS_ORDERED){
@@ -62,18 +53,40 @@ public class Cart {
         }
     }
 // ------------------------------ ------------------------------
-    public void sortByCost(Media mediaList) {
-		Media[] sorted = Media.sortByCost(mediaList);
-		System.out.println("---- Sort by Cost: ");
-		for(int i = 0; i< sorted.length; i++){
-			System.out.println(sorted[i].getDetail());
+    public void sortByCost() {
+		int n= itemsOrdered.size();
+	    for (int i = 0; i < n-1; i++){
+	    	int min_idx = i;
+	    	for (int j = i+1; j < n; j++)
+	    		if (itemsOrdered.get(j).getCost() > itemsOrdered.get(min_idx).getCost())
+	    			min_idx = j;
+	    		else if (itemsOrdered.get(j).getCost() == itemsOrdered.get(min_idx).getCost()) {
+	    			if (itemsOrdered.get(j).getTitle().compareTo(itemsOrdered.get(min_idx).getTitle()) < 0)
+		    			min_idx = j;
+	    		}
+	    	Collections.swap(itemsOrdered, i, min_idx);
+	    }
+		System.out.println("Sort by cost: ");
+		for(int i=0; i<n; i++) {
+			System.out.println(i+1+ ". " + itemsOrdered.get(i).getDetail());
 		}
     }
-    public void sortByTitle(Media mediaList) {
-		Media[] sortedd = Media.sortByTitle(mediaList);
-		System.out.println("---- Sort by Title: ");
-		for(int i = 0; i< sortedd.length; i++){
-			System.out.println(sortedd[i].getDetail());
+    public void sortByTitle() {
+		int n= itemsOrdered.size();
+	    for (int i = 0; i < n-1; i++){
+	    	int min_idx = i;
+	    	for (int j = i+1; j < n; j++)
+	    		if (itemsOrdered.get(j).getTitle().compareTo(itemsOrdered.get(min_idx).getTitle()) < 0)
+	    			min_idx = j;
+	    		else if (itemsOrdered.get(j).getTitle().compareTo(itemsOrdered.get(min_idx).getTitle()) == 0) {
+	    			if (itemsOrdered.get(j).getCost() > itemsOrdered.get(min_idx).getCost()) 
+	    				min_idx = j;
+	    		}
+	    	Collections.swap(itemsOrdered, i, min_idx);
+	    }
+		System.out.println("Sort by Title: ");
+		for(int i=0; i<n; i++) {
+			System.out.println(i+1 +". "+ itemsOrdered.get(i).getDetail());
 		}
     }
 // ------------------------------ ------------------------------
@@ -158,7 +171,7 @@ public class Cart {
 	public int checkId(int id) {
 		int mark = 0;
 		int i = 0;
-		while(i < qtyOrdered) {
+		while(i < itemsOrdered.size()) {
 			if(itemsOrdered.get(i).getId()==id) {
 				mark++;
 			}
@@ -169,7 +182,7 @@ public class Cart {
 // ------------------------------ ------------------------------
     public float totalCost(){
         float total = 0;
-        for (int i = 0; i < qtyOrdered; i++){
+        for (int i = 0; i < itemsOrdered.size(); i++){
                 total += itemsOrdered.get(i).getCost();
         }
         return total;       

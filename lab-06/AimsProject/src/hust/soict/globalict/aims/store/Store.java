@@ -1,6 +1,6 @@
 package hust.soict.globalict.aims.store;
 import java.util.ArrayList;
-
+import java.util.Collections;
 import hust.soict.globalict.aims.media.*;
 
 public class Store {
@@ -52,7 +52,7 @@ public class Store {
 	    	for (int j = i+1; j < n; j++)
 	    		if (itemsInStore.get(j).getId() < itemsInStore.get(minIndex).getId())
 	    			minIndex = j;
-                    Media.swap(itemsInStore.get(minIndex), itemsInStore.get(i));
+                    Collections.swap(itemsInStore, i, minIndex);
 	    }
 	    System.out.println("***********************STORE**********************");
 		for(int i=0; i < n; i++) {
