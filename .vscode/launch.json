@@ -6,6 +6,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch GarbageCreator",
+            "request": "launch",
+            "mainClass": "hust.soict.globalict.garbage.GarbageCreator"
+        },
+        {
+            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}"
