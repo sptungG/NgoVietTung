@@ -6,7 +6,7 @@ public class GarbageCreator {
 		long startTime, endTime;
 		startTime =System.currentTimeMillis();
 		String makeGarbage;
-		for(int i=0; i<Integer.MAX_VALUE; i++) {
+		for(int i = 0; i < Integer.MAX_VALUE; i++) {
 			makeGarbage= new String("Garbage");
 			new String("Garbage");
 		}
