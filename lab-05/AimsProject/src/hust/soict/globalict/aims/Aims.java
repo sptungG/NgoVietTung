@@ -54,32 +54,7 @@ public class Aims {
 
         anItem.addDVD(dvd1, dvd2, dvd3, dvd4, dvd5, dvd6, dvd7);
         //show the cart
-/*
-		// anOrder.addDigitalVideoDisc(dvd1, dvd2);
-		DigitalVideoDisc[] allDVDList = {dvd1, dvd2, dvd3, dvd4, dvd5, dvd6, dvd7};
-        DigitalVideoDisc[] tempDVDList = {dvd1, dvd2, dvd3, dvd4, dvd6};  
 
-        anOrder.addDigitalVideoDisc(tempDVDList);
-		//sortByCost
-		anOrder.sortByCost(tempDVDList);
-		//sortByTitle
-		anOrder.sortByTitle(tempDVDList);
-        System.out.println("\n---- Print Bill: ");
-        anOrder.orderedBill();
-        // Search by Id
-		anOrder.searchByID(5);
-		anOrder.searchByID(1);
-		System.out.println("\n");
-        //remove DVD from the cart
-        anOrder.removeDigitalVideoDisc(dvd4);
-        anOrder.removeDigitalVideoDisc(dvd5);
-		anOrder.removeDigitalVideoDisc(dvd6);
-		anOrder.removeDigitalVideoDisc(dvd6);		
-		System.out.println("\n---- Print Bill: ");
-        anOrder.orderedBill();
-        //print total cost
-        System.out.print("Total Cost is: " + anOrder.totalCost() + " $");
-*/
 DigitalVideoDisc tmpDvd;
 DigitalVideoDisc[] dvd = new DigitalVideoDisc[100];
 int count = 0;
@@ -337,3 +312,29 @@ try (Scanner keyboard = new Scanner(System.in)) {
 
 }
 }
+/*
+		// anOrder.addDigitalVideoDisc(dvd1, dvd2);
+		DigitalVideoDisc[] allDVDList = {dvd1, dvd2, dvd3, dvd4, dvd5, dvd6, dvd7};
+        DigitalVideoDisc[] tempDVDList = {dvd1, dvd2, dvd3, dvd4, dvd6};  
+
+        anOrder.addDigitalVideoDisc(tempDVDList);
+		//sortByCost
+		anOrder.sortByCost(tempDVDList);
+		//sortByTitle
+		anOrder.sortByTitle(tempDVDList);
+        System.out.println("\n---- Print Bill: ");
+        anOrder.orderedBill();
+        // Search by Id
+		anOrder.searchByID(5);
+		anOrder.searchByID(1);
+		System.out.println("\n");
+        //remove DVD from the cart
+        anOrder.removeDigitalVideoDisc(dvd4);
+        anOrder.removeDigitalVideoDisc(dvd5);
+		anOrder.removeDigitalVideoDisc(dvd6);
+		anOrder.removeDigitalVideoDisc(dvd6);		
+		System.out.println("\n---- Print Bill: ");
+        anOrder.orderedBill();
+        //print total cost
+        System.out.print("Total Cost is: " + anOrder.totalCost() + " $");
+*/

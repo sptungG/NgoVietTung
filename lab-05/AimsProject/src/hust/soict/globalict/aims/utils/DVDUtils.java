@@ -6,7 +6,6 @@ public class DVDUtils {
 		// String temp = dvd1.getTitle();
 		// dvd1.setTitle(dvd2.getTitle());
 		// dvd2.setTitle(temp);
-
 		String title = dvd1.getTitle();
 		String category = dvd1.getCategory();
 		String director =dvd1.getDirector();
