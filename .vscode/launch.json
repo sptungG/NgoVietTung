@@ -6,6 +6,18 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch ConcatenationInLoops",
+            "request": "launch",
+            "mainClass": "AimsProject/hust.soict.globalict.garbage.ConcatenationInLoops"
+        },
+        {
+            "type": "java",
+            "name": "Launch NoGarbage",
+            "request": "launch",
+            "mainClass": "AimsProject/hust.soict.globalict.garbage.NoGarbage"
+        },
+        {
+            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}"
