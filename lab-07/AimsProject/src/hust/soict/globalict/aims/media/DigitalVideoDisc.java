@@ -2,7 +2,7 @@ package hust.soict.globalict.aims.media;
 
 import java.time.LocalDate;
 
-public class DigitalVideoDisc extends Media {
+public class DigitalVideoDisc extends Disc implements Playable  {
 
 	private String director;
 	private int length;
@@ -70,6 +70,15 @@ public class DigitalVideoDisc extends Media {
 	public String getDetail() {
 		return ("ID: " + this.id + " - DVD - " + this.title+ " - " + this.category + " - " +
 		this.director + " - "+ this.length + ": " + this.cost + "$");
+	}
+	@Override
+	public void play() {
+		if(this.getLength() <=0 )
+			System.out.println("DVD: " +this.getTitle()+ " can't be played! DVD's Length <=0.");
+		else {
+			System.out.println("Playing DVD: " + this.getTitle());
+			System.out.println("DVD length: " + this.getLength());
+		}
 	}
 }
 
